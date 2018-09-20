@@ -20,5 +20,4 @@ public class afterPageRecommendItemController  {
         usernameIDLabel.setText(username);
     }
 
-
 }
