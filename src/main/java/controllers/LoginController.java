@@ -28,6 +28,8 @@ public class LoginController {
     private PasswordField userPassword;
     private ObservableList<Accounts> accounts;
 
+
+
     public void initialize() {
         accounts = accountsDB.loadAccounts();
         userPassword.setOnKeyPressed(new EventHandler<KeyEvent>() {
@@ -68,7 +70,8 @@ public class LoginController {
         boolean loginSuccess = false;
         for (Accounts i : accounts) {
             if (i.getUsername().equals(userName.getText()) && i.getPassword().equals(userPassword.getText())) {
-                this.backToStartHome(stage);
+                String name = userName.getText();
+                this.loginPassToProgram(stage,name);
                 loginSuccess = true;
                 break;
             }
@@ -78,10 +81,14 @@ public class LoginController {
         }
     }
 
-//    private void loginToHome(Stage stage) throws IOException {
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/signup.fxml"));
-//        stage.setScene(new Scene(loader.load()));
-//        stage.show();
-//        warningText.setText("");
-//    }
+    // error cannot sent name to afterPage...Controller
+    private void loginPassToProgram(Stage stage,String name) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/afterLoginRecommendItemHome.fxml"));
+        stage.setScene(new Scene(loader.load()));
+
+        afterPageRecommendItemController controller = loader.getController();
+        controller.setUsername(name);
+        stage.show();
+        warningText.setText("");
+    }
 }

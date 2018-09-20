@@ -7,7 +7,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/10.0.2" xmlns:fx="http://javafx.com/fxml/1" >
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/10.0.2" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="291.0" layoutY="15.0" text="Slazapee">
          <font>
@@ -22,15 +22,15 @@
             </RadialGradient>
          </textFill>
       </Label>
-      <Button fx:id="signupButton" layoutX="838.0" layoutY="28.0" mnemonicParsing="false" text="Sign-up">
+      <Button fx:id="logoutButton" layoutX="837.0" layoutY="29.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="92.0" text="Logout">
          <font>
             <Font size="19.0" />
          </font>
       </Button>
-      <Button fx:id="loginButton" layoutX="713.0" layoutY="28.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="92.0" text="Login">
+      <Label fx:id="usernameIDLabel" layoutX="729.0" layoutY="31.0">
          <font>
-            <Font size="19.0" />
+            <Font size="26.0" />
          </font>
-      </Button>
+      </Label>
    </children>
 </Pane>
