@@ -63,7 +63,7 @@ public class AccountController {
     public void backOnAction(ActionEvent event) throws IOException {
         Button button = (Button) event.getSource();
         Stage stage = (Stage) button.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/home.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/startRecommendItem.fxml"));
         stage.setScene(new Scene(loader.load()));
         stage.show();
     }

@@ -46,6 +46,18 @@ public class LoginController {
         });
     }
 
+    public void cancelLogin(ActionEvent event) throws IOException {
+        Button button = (Button) event.getSource();
+        Stage stage = (Stage) button.getScene().getWindow();
+        this.backToStartHome(stage);
+    }
+
+    private void backToStartHome(Stage stage) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/startRecommendItem.fxml"));
+        stage.setScene(new Scene(loader.load()));
+        stage.show();
+    }
+
     public void loginOnClick(ActionEvent event) throws IOException {
         Button button = (Button) event.getSource();
         Stage stage = (Stage) button.getScene().getWindow();
@@ -56,7 +68,7 @@ public class LoginController {
         boolean loginSuccess = false;
         for (Accounts i : accounts) {
             if (i.getUsername().equals(userName.getText()) && i.getPassword().equals(userPassword.getText())) {
-                this.loginToHome(stage);
+                this.backToStartHome(stage);
                 loginSuccess = true;
                 break;
             }
@@ -66,10 +78,10 @@ public class LoginController {
         }
     }
 
-    private void loginToHome(Stage stage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/signup.fxml"));
-        stage.setScene(new Scene(loader.load()));
-        stage.show();
-        warningText.setText("");
-    }
+//    private void loginToHome(Stage stage) throws IOException {
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/signup.fxml"));
+//        stage.setScene(new Scene(loader.load()));
+//        stage.show();
+//        warningText.setText("");
+//    }
 }

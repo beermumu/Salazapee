@@ -59,7 +59,19 @@ public class CreateAccountController {
     }
 
     public void cancelToAccounts(ActionEvent event) {
-        this.backToAccounts(event);
+        this.cancelToHome(event);
+    }
+
+    public void cancelToHome(ActionEvent event) {
+        Button button = (Button) event.getSource();
+        Stage stage = (Stage) button.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/startRecommendItem.fxml"));
+        try {
+            stage.setScene(new Scene(loader.load()));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void backToAccounts(ActionEvent event) {
