@@ -34,8 +34,8 @@ public class ItemController {
     protected ImageView productImageView;
     @FXML
     protected Button saveBtn, cancelBtn, addPhotoBtn,nextButton;
-
-
+    private LoginController loginController = new LoginController();
+    private String link;
 
 //    public ItemController(String name, int quantity, int cost, String description) {
 //        this.name = name;
@@ -84,4 +84,34 @@ public class ItemController {
             System.out.println(itemArrayList.get(i).getDescription());
         }
     }
+
+    public void clickCancelImageInfo(ActionEvent event) throws IOException {
+        Button button = (Button) event.getSource();
+        Stage stage = (Stage) button.getScene().getWindow();
+        this.goBackToHome(stage);
+    }
+
+    private void goBackToHome(Stage stage) throws IOException {
+        if (loginController.getCheckLogin()){
+            link = "/afterLoginRecommendItemHome.fxml";
+        }else {
+            link = "/startRecommendItem.fxml";
+        }
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(link));
+        stage.setScene(new Scene(loader.load()));
+        stage.show();
+    }
+
+    public void clickCancelAddMenu(ActionEvent event) throws IOException {
+        Button button = (Button) event.getSource();
+        Stage stage = (Stage) button.getScene().getWindow();
+        this.goBackToLoginStart(stage);
+    }
+
+    private void goBackToLoginStart(Stage stage) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/afterLoginRecommendItemHome.fxml"));
+        stage.setScene(new Scene(loader.load()));
+        stage.show();
+    }
+    
 }

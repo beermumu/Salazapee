@@ -32,5 +32,41 @@
             <Font size="19.0" />
          </font>
       </Button>
+      <Button fx:id="imageButton1" layoutX="78.0" layoutY="128.0" mnemonicParsing="false" onAction="#clickImageItem" prefHeight="190.0" prefWidth="214.0" text="Button" />
+      <Label fx:id="itemLabel1" layoutX="158.0" layoutY="349.0" text="Label">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Button fx:id="imageButton2" layoutX="392.0" layoutY="129.0" mnemonicParsing="false" onAction="#clickImageItem" prefHeight="190.0" prefWidth="214.0" text="Button" />
+      <Button fx:id="imageButton3" layoutX="699.0" layoutY="129.0" mnemonicParsing="false" onAction="#clickImageItem" prefHeight="190.0" prefWidth="214.0" text="Button" />
+      <Label fx:id="itemLabel2" layoutX="472.0" layoutY="353.0" text="Label">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="itemLabel3" layoutX="779.0" layoutY="353.0" text="Label">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Button fx:id="imageButton4" layoutX="78.0" layoutY="422.0" mnemonicParsing="false" onAction="#clickImageItem" prefHeight="190.0" prefWidth="214.0" text="Button" />
+      <Button fx:id="imageButton5" layoutX="392.0" layoutY="423.0" mnemonicParsing="false" onAction="#clickImageItem" prefHeight="190.0" prefWidth="214.0" text="Button" />
+      <Button fx:id="imageButton6" layoutX="699.0" layoutY="423.0" mnemonicParsing="false" onAction="#clickImageItem" prefHeight="190.0" prefWidth="214.0" text="Button" />
+      <Label fx:id="itemLabel4" layoutX="158.0" layoutY="652.0" text="Label">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="itemLabel5" layoutX="472.0" layoutY="652.0" text="Label">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="itemLabel6" layoutX="779.0" layoutY="652.0" text="Label">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

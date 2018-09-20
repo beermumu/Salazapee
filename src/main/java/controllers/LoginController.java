@@ -27,9 +27,15 @@ public class LoginController {
     @FXML
     private PasswordField userPassword;
     private ObservableList<Accounts> accounts;
+    boolean loginSuccess;
+    boolean checklogin = false;
+    public Boolean getCheckLogin(){
+        return checklogin;
+    }
 
-
-
+    public void setCheckLogin(){
+        checklogin = false;
+    }
     public void initialize() {
         accounts = accountsDB.loadAccounts();
         userPassword.setOnKeyPressed(new EventHandler<KeyEvent>() {
@@ -67,12 +73,13 @@ public class LoginController {
     }
 
     private void checkUsernameAndPassword(Stage stage) throws IOException {
-        boolean loginSuccess = false;
+        loginSuccess = false;
         for (Accounts i : accounts) {
             if (i.getUsername().equals(userName.getText()) && i.getPassword().equals(userPassword.getText())) {
                 String name = userName.getText();
                 this.loginPassToProgram(stage,name);
                 loginSuccess = true;
+                checklogin = true;
                 break;
             }
         }
