@@ -6,10 +6,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/10.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ItemController">
+<AnchorPane prefHeight="720.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ItemController">
    <children>
       <ImageView fitHeight="221.0" fitWidth="332.0" layoutX="314.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true" />
-      <Label layoutX="131.0" layoutY="298.0" text="Label">
+      <Label layoutX="131.0" layoutY="298.0" text="ชื่อสินค้า">
          <font>
             <Font size="27.0" />
          </font></Label>
@@ -25,22 +25,22 @@
          <font>
             <Font size="20.0" />
          </font></Button>
-      <Label layoutX="131.0" layoutY="511.0" text="Label">
+      <Label layoutX="131.0" layoutY="511.0" text="รายละเอียด">
          <font>
             <Font size="27.0" />
          </font>
       </Label>
-      <Label layoutX="131.0" layoutY="453.0" text="Label">
+      <Label layoutX="131.0" layoutY="453.0" text="ราคา">
          <font>
             <Font size="27.0" />
          </font>
       </Label>
-      <Label layoutX="131.0" layoutY="398.0" text="Label">
+      <Label layoutX="131.0" layoutY="398.0" text="ปริมาณ">
          <font>
             <Font size="27.0" />
          </font>
       </Label>
-      <Label layoutX="131.0" layoutY="347.0" text="Label">
+      <Label layoutX="131.0" layoutY="347.0" text="ประเภท">
          <font>
             <Font size="27.0" />
          </font>

@@ -25,6 +25,8 @@ public class ItemController {
     private int quantity;
     private int cost;
     private String description;
+    private String type;
+    private String username;
 
     @FXML
     protected TextField costTextField, nameTextField, desTextField, quantityTextField, typeTextField;
@@ -37,23 +39,33 @@ public class ItemController {
     private LoginController loginController = new LoginController();
     private String link;
 
-//    public ItemController(String name, int quantity, int cost, String description) {
-//        this.name = name;
-//        this.quantity = quantity;
-//        this.cost = cost;
-//        this.description = description;
-//    }
-
     @FXML
     protected void handleAddPhotoBtn(ActionEvent event) {
     }
 
     @FXML
-    protected void handleSaveBtn(ActionEvent event) {
+    protected void handleSaveBtn(ActionEvent event) throws IOException {
         this.name = nameTextField.getText();
-        this.description = desTextField.getText();
+        this.description = desTextField.getPromptText();
         this.cost = Integer.valueOf(costTextField.getText());
         this.quantity = Integer.valueOf(quantityTextField.getText());
+        this.type = typeTextField.getText();
+
+
+//        ยังไม่ได้สั่งใช้นะเขียนไว้ก่อนเฉย ๆ
+//        this.addData(this.type, this.name, this.quantity, this.cost,  this.description);
+
+        Button button = (Button) event.getSource();
+        Stage stage = (Stage) button.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/afterLoginRecommendItemHome.fxml"));
+        stage.setScene(new Scene(loader.load()));
+        stage.show();
+
+    }
+
+    public void setUsername(String name) {
+        this.username = name;
+        System.out.println(this.username);
     }
 
 
@@ -94,6 +106,7 @@ public class ItemController {
     private void goBackToHome(Stage stage) throws IOException {
         if (loginController.getCheckLogin()){
             link = "/afterLoginRecommendItemHome.fxml";
+
         }else {
             link = "/startRecommendItem.fxml";
         }
@@ -111,6 +124,8 @@ public class ItemController {
     private void goBackToLoginStart(Stage stage) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/afterLoginRecommendItemHome.fxml"));
         stage.setScene(new Scene(loader.load()));
+        afterPageRecommendItemController controller = loader.getController();
+        controller.setUsername(username);
         stage.show();
     }
     

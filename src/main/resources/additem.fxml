@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/10.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ItemController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ItemController">
     <children>
             <Button fx:id="addPhotoBtn" mnemonicParsing="false" opacity="0.21" prefHeight="25.0" prefWidth="26.0" text="+" />
             <Button fx:id="saveBtn" layoutX="289.0" layoutY="638.0" mnemonicParsing="false" onAction="#handleSaveBtn" prefHeight="44.0" prefWidth="145.0" text="Add Product">
@@ -50,6 +50,6 @@
             <Font size="23.0" />
          </font>
       </Label>
-      <TextField fx:id="descriptionTextField" layoutX="203.0" layoutY="390.0" prefHeight="216.0" prefWidth="628.0" />
+      <TextField fx:id="desTextField" layoutX="203.0" layoutY="390.0" prefHeight="216.0" prefWidth="628.0" />
     </children>
 </Pane>

@@ -17,6 +17,7 @@ import java.util.ResourceBundle;
 public class afterPageRecommendItemController  {
 
     private ItemController itemController = new ItemController();
+    private String username;  //ใส่ไว้ก่อนถ้าจะดึงจาก db ตอนหลังค่อยลบ
     @FXML
     protected Button logoutButton;
     @FXML
@@ -38,6 +39,7 @@ public class afterPageRecommendItemController  {
 
     @FXML
     public void setUsername(String username){
+        this.username = username;               //ใส่ไว้ก่อนถ้าจะดึงจาก db ตอนหลังค่อยลบ
         usernameIDLabel.setText(username);
 
     }
@@ -64,6 +66,7 @@ public class afterPageRecommendItemController  {
     private void imagePage(Stage stage) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/showItem.fxml"));
         stage.setScene(new Scene(loader.load()));
+
         stage.show();
     }
 
@@ -76,6 +79,8 @@ public class afterPageRecommendItemController  {
     private void changeSceneAddButton(Stage stage) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/additem.fxml"));
         stage.setScene(new Scene(loader.load()));
+        ItemController itemController = loader.getController();
+        itemController.setUsername(this.username);
         stage.show();
     }
 }
