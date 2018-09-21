@@ -1,2 +1,2 @@
 # Salazapee
-The Best Shoping Shop in the world 
+The Best Shoping Program in the world 
