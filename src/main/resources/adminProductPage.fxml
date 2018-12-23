@@ -19,7 +19,7 @@
       </TableView>
       <Button fx:id="addBtn" layoutX="114.0" layoutY="424.0" mnemonicParsing="false" onAction="#clickAddButton" prefHeight="25.0" prefWidth="50.0" text="Add" />
       <Button fx:id="editBtn" layoutX="272.0" layoutY="424.0" mnemonicParsing="false" onAction="#clickEditButton" prefHeight="25.0" prefWidth="50.0" text="Edit" />
-      <Button fx:id="deleteBtn" layoutX="451.0" layoutY="424.0" mnemonicParsing="false" onAction="#deleteAccount" prefHeight="25.0" prefWidth="65.0" text="Delete" />
+      <Button fx:id="deleteBtn" layoutX="451.0" layoutY="424.0" mnemonicParsing="false" onAction="#deleteAccount" prefHeight="25.0" prefWidth="65.0" text="Delete" textFill="RED" />
       <Button layoutX="636.0" layoutY="424.0" mnemonicParsing="false" onAction="#clickBackButton" text="Back" />
    </children>
 </AnchorPane>
