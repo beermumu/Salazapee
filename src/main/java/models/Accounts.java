@@ -82,8 +82,4 @@ public class Accounts {
     public void setPassword(String password) {
         this.password = password;
     }
-
-    public void setStatus() {
-        this.status = 1;
-    }
 }
