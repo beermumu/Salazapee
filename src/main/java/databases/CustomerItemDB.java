@@ -10,11 +10,11 @@ public class CustomerItemDB {
         ArrayList<Item> items = new ArrayList<>();
         try {
             Class.forName("org.sqlite.JDBC");
-            String dbURL = "jdbc:sqlite:Item.db";
+            String dbURL = "jdbc:sqlite:Database.db";
             Connection connection = DriverManager.getConnection(dbURL);
             if (connection != null) {
                 DatabaseMetaData databaseMetaData = (DatabaseMetaData) connection.getMetaData();
-                String query = "select * from Data";
+                String query = "select * from Item";
                 Statement statement = connection.createStatement();
                 ResultSet resultSet = statement.executeQuery(query);
                 while (resultSet.next()) {
@@ -37,7 +37,7 @@ public class CustomerItemDB {
     public static void updateQtyItem(String id, int qty) {
         try {
             Class.forName("org.sqlite.JDBC");
-            String dbURL = "jdbc:sqlite:Item.db";
+            String dbURL = "jdbc:sqlite:Database.db";
             Connection connection = DriverManager.getConnection(dbURL);
             if (connection != null) {
                 String query = "update * from Item set Quantity=\'" + qty + "\' where ID=\'" + id + "\'";

@@ -14,7 +14,7 @@ public class CustomerAccountDB {
             String dbURL = "jdbc:sqlite:Database.db";
             Connection conn = DriverManager.getConnection(dbURL);
             if (conn != null) {
-                String query = "select * from Accounts";
+                String query = "select * from Account";
                 Statement statement = conn.createStatement();
                 ResultSet resultSet = statement.executeQuery(query);
                 while (resultSet.next()) {
@@ -45,7 +45,7 @@ public class CustomerAccountDB {
             String dbURL = "jdbc:sqlite:Database.db";
             Connection connection = DriverManager.getConnection(dbURL);
             if (connection != null) {
-                String query = "insert into Accounts (id, firstName, lastName, username, password, address , email , tel) values (\'" + id + "\', \'" + firstname + "\' , \'" + lastname + "\' , \'" + username + "\' , \'" + password + "\',\'" + address + "\',\'" + email + "\',\'" + tel + "\',\'"+0+"\')";
+                String query = "insert into Account (id, firstName, lastName, username, password, address , email , tel) values (\'" + id + "\', \'" + firstname + "\' , \'" + lastname + "\' , \'" + username + "\' , \'" + password + "\',\'" + address + "\',\'" + email + "\',\'" + tel + "\',\'"+0+"\')";
                 PreparedStatement p = connection.prepareStatement(query);
                 p.executeUpdate();
                 connection.close();
@@ -63,7 +63,7 @@ public class CustomerAccountDB {
 //            String dbURL = "jdbc:sqlite:Database.db";
 //            Connection connection = DriverManager.getConnection(dbURL);
 //            if (connection != null) {
-//                String query = "Delete from Accounts where id == \'" + id + "\'";
+//                String query = "Delete from Account where id == \'" + id + "\'";
 //                PreparedStatement p = connection.prepareStatement(query);
 //                p.executeUpdate();
 //                connection.close();
@@ -81,7 +81,7 @@ public class CustomerAccountDB {
             String dbURL = "jdbc:sqlite:Database.db";
             Connection connection = DriverManager.getConnection(dbURL);
             if (connection != null) {
-                String query = "update Accounts set id=\'" + id + "\' ,firstname=\'" + firstname +
+                String query = "update Account set id=\'" + id + "\' ,firstname=\'" + firstname +
                         "\' ,lastname=\'" + lastname + "\' ,username=\'" + username + "\' ,password=\'" + password + "\' ,address=\'" + address + "\' ,email=\'" + email + "\' ,tel=\'" + tel + "\' where ID == \'" + id + "\',\'"+0+"\'";
                 System.out.println(query);
                 PreparedStatement p = connection.prepareStatement(query);

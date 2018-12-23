@@ -79,11 +79,10 @@ public class LoginController {
         for (Accounts i : accounts) {
             if (i.getUsername().equals(userName.getText()) && i.getPassword().equals(userPassword.getText())) {
                 String name = userName.getText();
-                int status = i.getStatus();
-                if (status == 0) {
+                if (i.getStatus() == 0) {
                     this.loginPassToCustomerPage(stage, name);
-                } else if (status == 1) {
-                    this.loginPassToAdminPage(stage,name);
+                } else if (i.getStatus() == 1) {
+                    this.loginPassToAdminPage(stage, name);
                 }
                 loginSuccess = true;
                 checklogin = true;
@@ -97,7 +96,7 @@ public class LoginController {
 
     // error cannot sent name to afterPage...Controller
     private void loginPassToCustomerPage(Stage stage, String name) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/afterLoginRecommendItemHome.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/customerHome-View.fxml"));
         stage.setScene(new Scene(loader.load()));
 //        afterPageRecommendItemController controller = loader.getController();
 //        controller.setUsername(name);
