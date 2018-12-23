@@ -56,17 +56,14 @@ public class LoginController {
         });
     }
 
-    public void cancelLogin(ActionEvent event) throws IOException {
+    public void register(ActionEvent event) throws IOException {
         Button button = (Button) event.getSource();
         Stage stage = (Stage) button.getScene().getWindow();
-        this.backToStartHome(stage);
-    }
-
-    private void backToStartHome(Stage stage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/startRecommendItem.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/signup.fxml"));
         stage.setScene(new Scene(loader.load()));
         stage.show();
     }
+
 
     public void loginOnClick(ActionEvent event) throws IOException {
         Button button = (Button) event.getSource();

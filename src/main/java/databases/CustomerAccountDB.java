@@ -27,7 +27,7 @@ public class CustomerAccountDB {
                     String email = resultSet.getString(7);
                     String tel = resultSet.getString(8);
                     int status = resultSet.getInt(9);
-                    accounts.add(new Accounts(id, firstName, lastName, username, password, address, email, tel,status));
+                    accounts.add(new Accounts(id, firstName, lastName, username, password, address, email, tel, status));
                 }
                 //close connection
                 conn.close();
@@ -46,7 +46,7 @@ public class CustomerAccountDB {
             String dbURL = "jdbc:sqlite:Database.db";
             Connection connection = DriverManager.getConnection(dbURL);
             if (connection != null) {
-                String query = "insert into Account (id, firstName, lastName, username, password, address , email , tel) values (\'" + id + "\', \'" + firstname + "\' , \'" + lastname + "\' , \'" + username + "\' , \'" + password + "\',\'" + address + "\',\'" + email + "\',\'" + tel + "\',\'"+0+"\')";
+                String query = "insert into Account (id, firstName, lastName, username, password, address , email , tel , status) values (\'" + id + "\', \'" + firstname + "\' , \'" + lastname + "\' , \'" + username + "\' , \'" + password + "\',\'" + address + "\',\'" + email + "\',\'" + tel + "\',\'" + 0 + "\')";
                 PreparedStatement p = connection.prepareStatement(query);
                 p.executeUpdate();
                 connection.close();
@@ -83,7 +83,7 @@ public class CustomerAccountDB {
             Connection connection = DriverManager.getConnection(dbURL);
             if (connection != null) {
                 String query = "update Account set id=\'" + id + "\' ,firstname=\'" + firstname +
-                        "\' ,lastname=\'" + lastname + "\' ,username=\'" + username + "\' ,password=\'" + password + "\' ,address=\'" + address + "\' ,email=\'" + email + "\' ,tel=\'" + tel + "\' where ID == \'" + id + "\',\'"+0+"\'";
+                        "\' ,lastname=\'" + lastname + "\' ,username=\'" + username + "\' ,password=\'" + password + "\' ,address=\'" + address + "\' ,email=\'" + email + "\' ,tel=\'" + tel + "\',status=\'" + 0 + "\' where ID == \'" + id + "\'";
                 System.out.println(query);
                 PreparedStatement p = connection.prepareStatement(query);
                 p.executeUpdate();
@@ -95,4 +95,26 @@ public class CustomerAccountDB {
             e.printStackTrace();
         }
     }
+
+    public static int getCreateAccountsID() {
+        try {
+            Class.forName("org.sqlite.JDBC");
+            String dbURL = "jdbc:sqlite:Database.db";
+            Connection connection = DriverManager.getConnection(dbURL);
+            if (connection != null) {
+                String query = "Select max(id) from Account";
+                Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery(query);
+                int minID = resultSet.getInt(1);
+                connection.close();
+                return minID + 1;
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 1;
+    }
+
 }
