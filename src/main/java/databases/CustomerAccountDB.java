@@ -26,7 +26,8 @@ public class CustomerAccountDB {
                     String address = resultSet.getString(6);
                     String email = resultSet.getString(7);
                     String tel = resultSet.getString(8);
-                    accounts.add(new Accounts(id, firstName, lastName, username, password, address, email, tel,0));
+                    int status = resultSet.getInt(9);
+                    accounts.add(new Accounts(id, firstName, lastName, username, password, address, email, tel,status));
                 }
                 //close connection
                 conn.close();

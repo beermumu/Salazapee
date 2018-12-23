@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="homeview" prefHeight="600.0" prefWidth="699.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeController">
+<AnchorPane fx:id="homeview" prefHeight="600.0" prefWidth="699.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CustomerHomeController">
    <children>
       <Label layoutY="-3.0" prefHeight="68.0" prefWidth="699.0" style="-fx-background-color: #4682B4;" text="Salazapee" textFill="WHITE">
          <font>
@@ -35,11 +35,11 @@
             </TableColumn>
          </columns>
       </TableView>
-      <Button fx:id="deleteProductBtn" layoutX="370.0" layoutY="541.0" mnemonicParsing="false" onAction="#showCreateViewBtn" prefHeight="54.0" prefWidth="94.0" text="Delete item" />
-      <Button fx:id="clearCartBtn" layoutX="481.0" layoutY="541.0" mnemonicParsing="false" onAction="#showEditViewBtn" prefHeight="54.0" prefWidth="94.0" text="Clear Cart" />
-      <Button fx:id="purchaseBtn" layoutX="590.0" layoutY="541.0" mnemonicParsing="false" onAction="#showDeleteViewBtn" prefHeight="54.0" prefWidth="94.0" text="Purchase" />
-      <Button fx:id="resetFillterBtn" layoutX="605.0" layoutY="28.0" mnemonicParsing="false" onAction="#resetFillter" prefHeight="30.0" prefWidth="79.0" text="Reset Fillter" />
-      <Button fx:id="searchProductBtn" layoutX="520.0" layoutY="28.0" mnemonicParsing="false" onAction="#search" prefHeight="30.0" prefWidth="79.0" text="Search" />
+      <Button fx:id="deleteProductBtn" layoutX="370.0" layoutY="541.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="94.0" text="Delete item" />
+      <Button fx:id="clearCartBtn" layoutX="481.0" layoutY="541.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="94.0" text="Clear Cart" />
+      <Button fx:id="purchaseBtn" layoutX="590.0" layoutY="541.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="94.0" text="Purchase" />
+      <Button fx:id="resetFillterBtn" layoutX="605.0" layoutY="28.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="79.0" text="Reset Fillter" />
+      <Button fx:id="searchProductBtn" layoutX="520.0" layoutY="28.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="79.0" text="Search" />
       <TableView fx:id="cartTableView" layoutX="370.0" layoutY="108.0" prefHeight="420.0" prefWidth="316.0">
          <columns>
             <TableColumn fx:id="cartColumnName" prefWidth="150.0" text="Name">

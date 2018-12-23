@@ -98,8 +98,6 @@ public class LoginController {
     private void loginPassToCustomerPage(Stage stage, String name) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/customerHome-View.fxml"));
         stage.setScene(new Scene(loader.load()));
-//        afterPageRecommendItemController controller = loader.getController();
-//        controller.setUsername(name);
         stage.show();
         warningText.setText("");
     }
@@ -107,8 +105,6 @@ public class LoginController {
     private void loginPassToAdminPage(Stage stage, String name) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/adminstartpage.fxml"));
         stage.setScene(new Scene(loader.load()));
-//        afterPageRecommendItemController controller = loader.getController();
-//        controller.setUsername(name);
         stage.show();
         warningText.setText("");
     }
