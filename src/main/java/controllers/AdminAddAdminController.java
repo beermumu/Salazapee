@@ -104,9 +104,9 @@ public class AdminAddAdminController {
         try {
             double d = Double.parseDouble(strNum);
         } catch (NumberFormatException | NullPointerException nfe) {
-            return false;
+            return true;
         }
-        return true;
+        return false;
     }
 
     @FXML
