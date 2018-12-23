@@ -35,27 +35,27 @@ public class AdminAddProductController {
         Optional optional = ConfirmationAlert.showAndWait();
         if (optional.get() == ButtonType.YES) {
             if (id.getText().equals("")) {
-                id.setStyle("-fx-border-color: red");
+                id.setStyle("-fx-border-color: blue");
             } else {
                 id.setStyle("-fx-border-color: black");
             }
             if (name.getText().equals("")) {
-                name.setStyle("-fx-border-color: red");
+                name.setStyle("-fx-border-color: blue");
             } else {
                 name.setStyle("-fx-border-color: black");
             }
             if (quantity.getText().equals("")) {
-                quantity.setStyle("-fx-border-color: red");
+                quantity.setStyle("-fx-border-color: blue");
             } else {
                 quantity.setStyle("-fx-border-color: black");
             }
             if (cost.getText().equals("")) {
-                cost.setStyle("-fx-border-color: red");
+                cost.setStyle("-fx-border-color: blue");
             } else {
                 cost.setStyle("-fx-border-color: black");
             }
             if (description.getText().equals("")) {
-                description.setStyle("-fx-border-color: red");
+                description.setStyle("-fx-border-color: blue");
             } else {
                 description.setStyle("-fx-border-color: black");
             }
@@ -73,13 +73,13 @@ public class AdminAddProductController {
                         informationAlert.showAndWait();
                         clickBackButton(event);
                     }else {
-                        cost.setStyle("-fx-border-color: red");
+                        cost.setStyle("-fx-border-color: blue");
                     }
                 }else {
-                    quantity.setStyle("-fx-border-color: red");
+                    quantity.setStyle("-fx-border-color: blue");
                 }
             }else {
-                id.setStyle("-fx-border-color: red");
+                id.setStyle("-fx-border-color: blue");
             }
         } else {
             String errorMessage = "Could not save this item !!!";

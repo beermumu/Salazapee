@@ -29,49 +29,49 @@ public class AdminAddAdminController {
         boolean isPass = true;
         if (optional.get() == ButtonType.YES) {
             if (id.getText().equals("")) {
-                id.setStyle("-fx-border-color: red");
+                id.setStyle("-fx-border-color: blue");
                 isPass =false;
             } else {
                 id.setStyle("-fx-border-color: black");
             }
             if (firstname.getText().equals("")) {
-                firstname.setStyle("-fx-border-color: red");
+                firstname.setStyle("-fx-border-color: blue");
                 isPass =false;
             } else {
                 firstname.setStyle("-fx-border-color: black");
             }
             if (lastname.getText().equals("")) {
-                lastname.setStyle("-fx-border-color: red");
+                lastname.setStyle("-fx-border-color: blue");
                 isPass =false;
             } else {
                 lastname.setStyle("-fx-border-color: black");
             }
             if (username.getText().equals("")) {
-                username.setStyle("-fx-border-color: red");
+                username.setStyle("-fx-border-color: blue");
                 isPass =false;
             } else {
                 username.setStyle("-fx-border-color: black");
             }
             if (address.getText().equals("")) {
-                address.setStyle("-fx-border-color: red");
+                address.setStyle("-fx-border-color: blue");
                 isPass =false;
             } else {
                 address.setStyle("-fx-border-color: black");
             }
             if (password.getText().equals("")) {
-                password.setStyle("-fx-border-color: red");
+                password.setStyle("-fx-border-color: blue");
                 isPass =false;
             } else {
                 lastname.setStyle("-fx-border-color: black");
             }
             if (email.getText().equals("")) {
-                email.setStyle("-fx-border-color: red");
+                email.setStyle("-fx-border-color: blue");
                 isPass =false;
             } else {
                 email.setStyle("-fx-border-color: black");
             }
             if (tel.getText().equals("") || isNumeric(tel.getText())) {
-                tel.setStyle("-fx-border-color: red");
+                tel.setStyle("-fx-border-color: blue");
                 isPass =false;
             } else {
                 tel.setStyle("-fx-border-color: black");
@@ -84,7 +84,7 @@ public class AdminAddAdminController {
                 informationAlert.showAndWait();
                 clickAddButton(event);
             }else {
-                id.setStyle("-fx-border-color: red");
+                id.setStyle("-fx-border-color: blue");
             }
         } else {
             String errorMessage = "Could not save this subject !!!";
