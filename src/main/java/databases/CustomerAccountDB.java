@@ -41,20 +41,29 @@ public class CustomerAccountDB {
     }
 
     public static void saveAccountsCustomerDB(int id, String firstname, String lastname, String username, String password, String address, String email, String tel) {
+        Connection connection = null;
+        PreparedStatement p = null;
+        String query = "insert into Account (id, firstName, lastName, username, password, address , email , tel , status) values (\'" + id + "\', \'" + firstname + "\' , \'" + lastname + "\' , \'" + username + "\' , \'" + password + "\',\'" + address + "\',\'" + email + "\',\'" + tel + "\',\'" + 0 + "\')";
+
         try {
             Class.forName("org.sqlite.JDBC");
             String dbURL = "jdbc:sqlite:Database.db";
-            Connection connection = DriverManager.getConnection(dbURL);
+            connection = DriverManager.getConnection(dbURL);
             if (connection != null) {
-                String query = "insert into Account (id, firstName, lastName, username, password, address , email , tel , status) values (\'" + id + "\', \'" + firstname + "\' , \'" + lastname + "\' , \'" + username + "\' , \'" + password + "\',\'" + address + "\',\'" + email + "\',\'" + tel + "\',\'" + 0 + "\')";
-                PreparedStatement p = connection.prepareStatement(query);
+                p = connection.prepareStatement(query);
                 p.executeUpdate();
-                connection.close();
             }
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
             e.printStackTrace();
+        }finally {
+            try {
+                p.close();
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 
