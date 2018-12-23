@@ -31,7 +31,7 @@
       </Label>
       <TextField fx:id="userName" layoutX="375.0" layoutY="202.0" prefHeight="25.0" prefWidth="173.0" />
       <PasswordField fx:id="userPassword" layoutX="375.0" layoutY="262.0" prefHeight="25.0" prefWidth="173.0" />
-      <Button layoutX="255.0" layoutY="374.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#loginOnClick" prefHeight="25.0" prefWidth="90.0" text="Login">
+      <Button layoutX="255.0" layoutY="374.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#loginOnClick" prefHeight="32.0" prefWidth="98.0" text="Login">
          <font>
             <Font size="15.0" />
          </font>
