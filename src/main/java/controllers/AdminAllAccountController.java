@@ -47,14 +47,6 @@ public class AdminAllAccountController {
         stage.show();
     }
 
-    @FXML
-    public void clickEditButton(ActionEvent event) throws Exception{
-        Button button = (Button) event.getSource();
-        Stage stage = (Stage) button.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/editProductPage.fxml"));
-        stage.setScene(new Scene(loader.load()));
-        stage.show();
-    }
 
     //delete button
 }

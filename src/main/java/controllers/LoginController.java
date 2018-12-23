@@ -103,7 +103,7 @@ public class LoginController {
     }
 
     private void loginPassToAdminPage(Stage stage, String name) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/adminstartpage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/adminStartPage.fxml"));
         stage.setScene(new Scene(loader.load()));
         stage.show();
         warningText.setText("");
