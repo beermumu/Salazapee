@@ -26,48 +26,57 @@ public class AdminAddAdminController {
         Alert ConfirmationAlert = new Alert(Alert.AlertType.CONFIRMATION, "Do you want to save this admin?", ButtonType.YES, ButtonType.NO);
         ConfirmationAlert.setHeaderText("");
         Optional optional = ConfirmationAlert.showAndWait();
+        boolean isPass = true;
         if (optional.get() == ButtonType.YES) {
             if (id.getText().equals("")) {
                 id.setStyle("-fx-border-color: red");
+                isPass =false;
             } else {
                 id.setStyle("-fx-border-color: black");
             }
             if (firstname.getText().equals("")) {
                 firstname.setStyle("-fx-border-color: red");
+                isPass =false;
             } else {
                 firstname.setStyle("-fx-border-color: black");
             }
             if (lastname.getText().equals("")) {
                 lastname.setStyle("-fx-border-color: red");
+                isPass =false;
             } else {
                 lastname.setStyle("-fx-border-color: black");
             }
             if (username.getText().equals("")) {
                 username.setStyle("-fx-border-color: red");
+                isPass =false;
             } else {
                 username.setStyle("-fx-border-color: black");
             }
             if (address.getText().equals("")) {
                 address.setStyle("-fx-border-color: red");
+                isPass =false;
             } else {
                 address.setStyle("-fx-border-color: black");
             }
             if (password.getText().equals("")) {
                 password.setStyle("-fx-border-color: red");
+                isPass =false;
             } else {
                 lastname.setStyle("-fx-border-color: black");
             }
             if (email.getText().equals("")) {
                 email.setStyle("-fx-border-color: red");
+                isPass =false;
             } else {
                 email.setStyle("-fx-border-color: black");
             }
-            if (tel.getText().equals("") && isNumeric(tel.getText())) {
+            if (tel.getText().equals("") || isNumeric(tel.getText())) {
                 tel.setStyle("-fx-border-color: red");
+                isPass =false;
             } else {
                 tel.setStyle("-fx-border-color: black");
             }
-            if (checkID(id.getText())) {
+            if (checkID(id.getText()) && isPass) {
                 accountDB.saveAdmin(id.getText(), firstname.getText(), lastname.getText(), username.getText(), password.getText(), address.getText(), email.getText(), tel.getText());
                 Alert informationAlert = new Alert(Alert.AlertType.INFORMATION, "This Account is saved.");
                 informationAlert.setTitle("Saved");

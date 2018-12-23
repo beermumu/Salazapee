@@ -20,7 +20,7 @@ public class AdminAllProductPage {
     TableView<Item> productTableView ;
     @FXML protected TableColumn id,type,name,quantity,cost,description;
     @FXML
-    Button addBtn,editBtn,deleteBtn;
+    Button addBtn,editBtn,deleteBtn,backBtn;
 
 
     public void initialize (){
@@ -73,4 +73,14 @@ public class AdminAllProductPage {
             informationAlert.showAndWait();
         }
     }
+
+    @FXML
+    public void clickBackButton(ActionEvent event) throws Exception{
+        Button button = (Button) event.getSource();
+        Stage stage = (Stage) button.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/adminStartPage.fxml"));
+        stage.setScene(new Scene(loader.load()));
+        stage.show();
+    }
+
 }

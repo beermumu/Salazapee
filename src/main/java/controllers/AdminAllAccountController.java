@@ -20,7 +20,7 @@ public class AdminAllAccountController {
     @FXML protected TableColumn id,firstName,lastName,username,address,email,tel,details;
 
     @FXML
-    Button addBtn,deleteBtn;
+    Button addBtn,deleteBtn,backBtn;
 
 
     public void initialize (){
@@ -64,4 +64,14 @@ public class AdminAllAccountController {
             informationAlert.showAndWait();
         }
     }
+
+    @FXML
+    public void clickBackButton(ActionEvent event) throws Exception{
+        Button button = (Button) event.getSource();
+        Stage stage = (Stage) button.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/adminStartPage.fxml"));
+        stage.setScene(new Scene(loader.load()));
+        stage.show();
+    }
+
 }
