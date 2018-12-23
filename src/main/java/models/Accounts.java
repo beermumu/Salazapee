@@ -1,7 +1,7 @@
 package models;
 
 public class Accounts {
-    private int id = 0;
+    private String id ;
     private String firstname;
     private String lastname;
     private String username;
@@ -9,8 +9,9 @@ public class Accounts {
     private String address;
     private String email;
     private String tel;
+    private int status;
 
-    public Accounts(int id, String firstname, String lastname, String username, String password, String address, String email, String tel) {
+    public Accounts(String id, String firstname, String lastname, String username, String password, String address, String email, String tel,int status) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -19,6 +20,7 @@ public class Accounts {
         this.address = address;
         this.email = email;
         this.tel = tel;
+        this.status = status;
     }
 
     public String getAddress() {
@@ -45,12 +47,12 @@ public class Accounts {
         this.tel = tel;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getStatus() {
+        return status;
     }
 
     public String getFirstname() {
@@ -71,10 +73,6 @@ public class Accounts {
 
     public String getUsername() {
         return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 
     public String getPassword() {
