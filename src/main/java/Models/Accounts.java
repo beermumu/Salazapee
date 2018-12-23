@@ -83,7 +83,7 @@ public class Accounts {
         this.password = password;
     }
 
-    public void setStatus(int status) {
-        this.status = status;
+    public void setStatus() {
+        this.status = 1;
     }
 }
