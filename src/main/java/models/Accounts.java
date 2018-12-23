@@ -10,6 +10,7 @@ public class Accounts {
     private String email;
     private String tel;
     private int status;
+    private String details;
 
     public Accounts(String id, String firstname, String lastname, String username, String password, String address, String email, String tel,int status) {
         this.id = id;
@@ -21,6 +22,11 @@ public class Accounts {
         this.email = email;
         this.tel = tel;
         this.status = status;
+        if (status == 1 ){
+            details = "Admin";
+        }else {
+            details = "User";
+        }
     }
 
     public String getAddress() {
@@ -81,5 +87,9 @@ public class Accounts {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getDetails() {
+        return details;
     }
 }

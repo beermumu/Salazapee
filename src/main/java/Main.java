@@ -16,8 +16,5 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
-//        ItemController controller = new ItemController();
-//        controller.addData("snack","E",600,150,"E");
-//        controller.showData();;
     }
 }
