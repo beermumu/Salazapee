@@ -15,7 +15,7 @@
             <Font size="36.0" />
          </font>
       </Label>
-      <Label layoutX="493.0" layoutY="155.0" prefHeight="17.0" prefWidth="110.0" text="Totlal Price" />
+      <Label layoutX="493.0" layoutY="155.0" prefHeight="17.0" prefWidth="110.0" text="Total Price" />
       <Label fx:id="totalPriceLabel" layoutX="603.0" layoutY="152.0" prefHeight="25.0" prefWidth="125.0" text="???" />
       <TableView fx:id="purchaseTableView" layoutX="21.0" layoutY="113.0" prefHeight="375.0" prefWidth="350.0">
          <columns>
