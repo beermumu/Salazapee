@@ -15,16 +15,16 @@
          </font>
       </Label>
       <Label layoutX="150.0" layoutY="178.0" text="Name" />
-      <Label layoutX="377.0" layoutY="178.0" text="Lastname" />
+      <Label layoutX="400.0" layoutY="178.0" text="Lastname" />
       <Label layoutX="140.0" layoutY="241.0" text="Address" />
       <Label layoutX="149.0" layoutY="303.0" text="Email" />
       <Label layoutX="158.0" layoutY="349.0" text="Tel" />
       <Label layoutX="136.0" layoutY="134.0" text="Username" />
-      <Label layoutX="377.0" layoutY="134.0" text="Password" />
+      <Label layoutX="400.0" layoutY="134.0" text="Password" />
       <TextField fx:id="userName" layoutX="214.0" layoutY="130.0" />
-      <TextField fx:id="password" layoutX="443.0" layoutY="130.0" />
+      <TextField fx:id="password" layoutX="462.0" layoutY="130.0" />
       <TextField fx:id="firstName" layoutX="214.0" layoutY="174.0" prefHeight="25.0" prefWidth="149.0" />
-      <TextField fx:id="lastName" layoutX="443.0" layoutY="174.0" />
+      <TextField fx:id="lastName" layoutX="462.0" layoutY="174.0" />
       <TextArea fx:id="address" layoutX="214.0" layoutY="218.0" prefHeight="62.0" prefWidth="397.0" />
       <TextField fx:id="email" layoutX="215.0" layoutY="299.0" />
       <TextField fx:id="tel" layoutX="215.0" layoutY="345.0" />
