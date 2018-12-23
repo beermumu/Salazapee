@@ -20,6 +20,6 @@
          </columns>
       </TableView>
       <Button fx:id="addBtn" layoutX="175.0" layoutY="429.0" mnemonicParsing="false" onAction="#clickAddButton" prefHeight="25.0" prefWidth="50.0" text="Add" />
-      <Button fx:id="deleteBtn" layoutX="576.0" layoutY="429.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" text="Delete" />
+      <Button fx:id="deleteBtn" layoutX="576.0" layoutY="429.0" mnemonicParsing="false" onAction="#deleteAccount" prefHeight="25.0" prefWidth="65.0" text="Delete" />
    </children>
 </AnchorPane>

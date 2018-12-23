@@ -5,13 +5,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import models.Accounts;
 import models.Item;
+
+import java.util.Optional;
 
 public class AdminAllAccountController {
 
@@ -21,7 +21,7 @@ public class AdminAllAccountController {
     @FXML protected TableColumn id,firstName,lastName,username,address,email,tel,details;
 
     @FXML
-    Button addBtn,editBtn,deleteBtn;
+    Button addBtn,deleteBtn;
 
 
     public void initialize (){
@@ -49,4 +49,20 @@ public class AdminAllAccountController {
 
 
     //delete button
+    @FXML
+    public void deleteAccount(ActionEvent event){
+//        String id = accountsTableView.getSelectionModel().getSelectedItem().getId();
+//        String id = accountsTableView.getSelectionModel().getSelectedItem().
+        Alert ConfirmationAlert = new Alert(Alert.AlertType.CONFIRMATION, "Do you want to delete this account?", ButtonType.YES, ButtonType.NO);
+        ConfirmationAlert.setHeaderText("");
+        Optional optional = ConfirmationAlert.showAndWait();
+        if (optional.get() == ButtonType.YES) {
+//            adminAccountDB.deleteAccount(id);
+            accountsTableView.setItems(adminAccountDB.loadAccount());
+            Alert informationAlert = new Alert(Alert.AlertType.INFORMATION,"This Accounts is deleted.");
+            informationAlert.setTitle("Deleted");
+            informationAlert.setHeaderText("");
+            informationAlert.showAndWait();
+        }
+    }
 }

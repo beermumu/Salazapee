@@ -28,4 +28,13 @@ public class AdminAddProductController {
 //            stage.show();
 //        }
     }
+
+    @FXML
+    public void clickBackButton(ActionEvent event) throws Exception{
+        Button button = (Button) event.getSource();
+        Stage stage = (Stage) button.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/adminAccountPage.fxml"));
+        stage.setScene(new Scene(loader.load()));
+        stage.show();
+    }
 }
