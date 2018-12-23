@@ -13,7 +13,7 @@ import models.Item;
 import java.util.Optional;
 
 
-public class AdminAllProductPage {
+public class AdminAllProductPageController {
 
     private AdminItemDB adminItemDB;
     @FXML

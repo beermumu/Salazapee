@@ -7,7 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-public class AdminMainPage {
+public class AdminMainPageController {
 
     @FXML
     Button accountBtn,itemBtn;

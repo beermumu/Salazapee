@@ -7,7 +7,7 @@ import javafx.scene.control.TableView;
 
 import javax.swing.text.TabableView;
 
-public class paymentController {
+public class PaymentController {
 
     @FXML
     private TableView purchaseTableView;
