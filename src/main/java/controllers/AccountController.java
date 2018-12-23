@@ -1,6 +1,6 @@
 //package controllers;
 //
-//import databases.AccountDB;
+//import databases.AccountCustomerDB;
 //import javafx.beans.value.ChangeListener;
 //import javafx.beans.value.ObservableValue;
 //import javafx.event.ActionEvent;
@@ -18,7 +18,7 @@
 //import java.util.Optional;
 //
 //public class AccountController {
-//    static AccountDB accountsDB = new AccountDB();
+//    static AccountCustomerDB accountsDB = new AccountCustomerDB();
 //    @FXML
 //    private TableView<Accounts> accountsTableView;
 //    @FXML private Button deleteButton,editButton;
