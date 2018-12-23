@@ -9,18 +9,18 @@
 <AnchorPane prefHeight="500.0" prefWidth="800.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminEditProductController">
    <children>
       <Label layoutX="135.0" layoutY="78.0" text="Name" />
-      <Button fx:id="addBtn" layoutX="271.0" layoutY="358.0" mnemonicParsing="false" onAction="#clickEditButton" text="Edit" />
       <TextField fx:id="name" layoutX="182.0" layoutY="74.0" />
       <Label layoutX="138.0" layoutY="188.0" text="Type" />
       <Label layoutX="128.0" layoutY="130.0" text="Quantity" />
+      <TextField fx:id="cost" layoutX="476.0" layoutY="74.0" prefHeight="25.0" prefWidth="230.0" />
       <TextField fx:id="quantity" layoutX="182.0" layoutY="126.0" prefHeight="25.0" prefWidth="149.0" />
       <Label layoutX="432.0" layoutY="78.0" text="Cost" />
-      <TextField fx:id="cost" layoutX="476.0" layoutY="74.0" prefHeight="25.0" prefWidth="230.0" />
       <Label layoutX="402.0" layoutY="188.0" text="Description" />
-      <TextField fx:id="description" layoutX="476.0" layoutY="181.0" prefHeight="81.0" prefWidth="230.0" />
-      <Label layoutX="438.0" layoutY="130.0" text="ID" />
       <TextField fx:id="id" layoutX="476.0" layoutY="126.0" prefHeight="25.0" prefWidth="230.0" />
-      <Button layoutX="476.0" layoutY="358.0" mnemonicParsing="false" onAction="#clickBackButton" text="Back" />
       <ComboBox fx:id="type" layoutX="182.0" layoutY="181.0" prefWidth="150.0" />
+      <TextField fx:id="description" layoutX="476.0" layoutY="181.0" prefHeight="81.0" prefWidth="230.0" />
+      <Button fx:id="addBtn" layoutX="271.0" layoutY="358.0" mnemonicParsing="false" onAction="#clickEditButton" text="Edit" />
+      <Button layoutX="476.0" layoutY="358.0" mnemonicParsing="false" onAction="#clickBackButton" text="Back" />
+      <Label layoutX="438.0" layoutY="130.0" text="ID" />
    </children>
 </AnchorPane>
