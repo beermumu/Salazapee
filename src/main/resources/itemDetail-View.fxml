@@ -7,21 +7,20 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="435.0" prefWidth="698.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ItemDetailController">
+<AnchorPane prefHeight="500.0" prefWidth="800.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ItemDetailController">
    <children>
-      <Label layoutX="-1.0" prefHeight="68.0" prefWidth="699.0" style="-fx-background-color: #4682B4;" text="Salazapee" textFill="WHITE">
+      <Label layoutX="-1.0" prefHeight="68.0" prefWidth="800.0" style="-fx-background-color: #d85b37 ;" text="Salazapee" textFill="WHITE">
          <font>
             <Font size="36.0" />
          </font>
       </Label>
-      <Button fx:id="cancelBtn" layoutX="483.0" layoutY="262.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="174.0" text="Cancel" />
-      <Button fx:id="addItemBtn" layoutX="483.0" layoutY="213.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="174.0" text="Add" />
-      <TextArea fx:id="ItemDetailTextArea" layoutX="53.0" layoutY="113.0" prefHeight="277.0" prefWidth="403.0" />
+      <Button fx:id="cancelBtn" layoutX="547.0" layoutY="274.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="174.0" text="Cancel" />
+      <Button fx:id="addItemBtn" layoutX="547.0" layoutY="212.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="174.0" text="Add" />
+      <TextArea fx:id="ItemDetailTextArea" layoutX="53.0" layoutY="113.0" prefHeight="343.0" prefWidth="403.0" />
       <Label layoutX="53.0" layoutY="84.0" prefHeight="30.0" prefWidth="125.0" text="Products Details" />
-      <TextField fx:id="itemQuantity" layoutX="534.0" layoutY="113.0" prefHeight="25.0" prefWidth="125.0" />
-      <Label layoutX="482.0" layoutY="117.0" prefHeight="17.0" prefWidth="52.0" text="Quantity" />
-      <Label layoutX="482.0" layoutY="146.0" prefHeight="17.0" prefWidth="52.0" text="Price" />
-      <Label fx:id="priceLabel" layoutX="534.0" layoutY="142.0" prefHeight="25.0" prefWidth="125.0" text="???" />
+      <TextField fx:id="itemQuantity" layoutX="585.0" layoutY="120.0" prefHeight="25.0" prefWidth="125.0" />
+      <Label layoutX="533.0" layoutY="124.0" prefHeight="17.0" prefWidth="52.0" text="Quantity" />
+      <Label layoutX="533.0" layoutY="164.0" prefHeight="17.0" prefWidth="52.0" text="Price" />
+      <Label fx:id="priceLabel" layoutX="585.0" layoutY="160.0" prefHeight="25.0" prefWidth="125.0" text="???" />
    </children>
 </AnchorPane>
