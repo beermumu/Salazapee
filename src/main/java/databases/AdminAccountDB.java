@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import models.Accounts;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class AdminAccountDB {
 
@@ -78,6 +79,31 @@ public class AdminAccountDB {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public static ArrayList getAccountID(){
+        ArrayList<String> accounts = new ArrayList<>();
+        try {
+            Class.forName(dbName);
+            Connection connection = DriverManager.getConnection(dbURL);
+            if (connection != null) {
+                String query = "select * from Account";
+                Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery(query);
+                while (resultSet.next()) {
+                    String id = resultSet.getString("ID");
+                    accounts.add(id);
+                }
+                statement.close();
+                resultSet.close();
+                connection.close();
+            }
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return accounts;
     }
 
 }

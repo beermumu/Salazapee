@@ -9,7 +9,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import models.Accounts;
-import models.Item;
 
 import java.util.Optional;
 
@@ -17,7 +16,7 @@ public class AdminAllAccountController {
 
     private AdminAccountDB adminAccountDB;
     @FXML
-    TableView<Item> accountsTableView ;
+    TableView<Accounts> accountsTableView ;
     @FXML protected TableColumn id,firstName,lastName,username,address,email,tel,details;
 
     @FXML
@@ -52,12 +51,12 @@ public class AdminAllAccountController {
     @FXML
     public void deleteAccount(ActionEvent event){
 //        String id = accountsTableView.getSelectionModel().getSelectedItem().getId();
-//        String id = accountsTableView.getSelectionModel().getSelectedItem().
+        String id = accountsTableView.getSelectionModel().getSelectedItem().getId();
         Alert ConfirmationAlert = new Alert(Alert.AlertType.CONFIRMATION, "Do you want to delete this account?", ButtonType.YES, ButtonType.NO);
         ConfirmationAlert.setHeaderText("");
         Optional optional = ConfirmationAlert.showAndWait();
         if (optional.get() == ButtonType.YES) {
-//            adminAccountDB.deleteAccount(id);
+            adminAccountDB.deleteAccount(id);
             accountsTableView.setItems(adminAccountDB.loadAccount());
             Alert informationAlert = new Alert(Alert.AlertType.INFORMATION,"This Accounts is deleted.");
             informationAlert.setTitle("Deleted");

@@ -67,14 +67,18 @@ public class AdminAddAdminController {
             } else {
                 tel.setStyle("-fx-border-color: black");
             }
-            accountDB.saveAdmin(id.getText(),firstname.getText(),lastname.getText(),username.getText(),password.getText(),address.getText(),email.getText(),tel.getText());
-            Alert informationAlert = new Alert(Alert.AlertType.INFORMATION, "This Account is saved.");
-            informationAlert.setTitle("Saved");
-            informationAlert.setHeaderText("");
-            informationAlert.showAndWait();
-            clickAddButton(event);
+            if (checkID(id.getText())) {
+                accountDB.saveAdmin(id.getText(), firstname.getText(), lastname.getText(), username.getText(), password.getText(), address.getText(), email.getText(), tel.getText());
+                Alert informationAlert = new Alert(Alert.AlertType.INFORMATION, "This Account is saved.");
+                informationAlert.setTitle("Saved");
+                informationAlert.setHeaderText("");
+                informationAlert.showAndWait();
+                clickAddButton(event);
+            }else {
+                id.setStyle("-fx-border-color: red");
+            }
         } else {
-            String errorMessage = "Could not save this subject !!! \n Please enter correct information";
+            String errorMessage = "Could not save this subject !!!";
             Alert errorAlert = new Alert(Alert.AlertType.ERROR, errorMessage);
             errorAlert.setTitle("ERROR!");
             errorAlert.setHeaderText("");
@@ -82,6 +86,11 @@ public class AdminAddAdminController {
         }
     }
 
+    public boolean checkID(String id){
+        if (accountDB.getAccountID().contains(id)){
+            return false;
+        }return true;
+    }
     public  boolean isNumeric(String strNum) {
         try {
             double d = Double.parseDouble(strNum);
