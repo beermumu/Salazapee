@@ -1,4 +1,4 @@
-package models;
+package Models;
 
 public class Accounts {
     private String id ;
@@ -6,6 +6,7 @@ public class Accounts {
     private String lastname;
     private String username;
     private String password;
+    private String type;
     private String address;
     private String email;
     private String tel;
@@ -20,6 +21,7 @@ public class Accounts {
         this.address = address;
         this.email = email;
         this.tel = tel;
+        this.type = "False";
         this.status = status;
     }
 
@@ -43,7 +45,7 @@ public class Accounts {
         return tel;
     }
 
-    public void setTel(String  tel) {
+    public void setTel(String tel) {
         this.tel = tel;
     }
 
@@ -81,5 +83,13 @@ public class Accounts {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }
