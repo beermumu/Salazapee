@@ -3,7 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminMainPage">
+<AnchorPane prefHeight="500.0" prefWidth="800.0" styleClass="style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminMainPage">
    <children>
       <Button fx:id="accountBtn" layoutX="143.0" layoutY="238.0" mnemonicParsing="false" onAction="#clickAccountButton" text="Account Management" />
       <Button fx:id="itemBtn" layoutX="503.0" layoutY="238.0" mnemonicParsing="false" onAction="#clickItemButton" text="Product Management" />
