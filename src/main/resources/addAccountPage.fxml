@@ -5,25 +5,25 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminAddAdminController">
+<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminAddAdminController">
    <children>
-      <Button fx:id="addBtn" layoutX="262.0" layoutY="361.0" mnemonicParsing="false" onAction="#checkFill" text="Add Admin" />
-      <Label layoutX="20.0" layoutY="30.0" prefHeight="34.0" prefWidth="59.0" text="First Name" />
-      <TextField fx:id="firstname" layoutX="89.0" layoutY="35.0" />
-      <Label layoutX="289.0" layoutY="31.0" prefHeight="34.0" prefWidth="59.0" text="Last Name" />
-      <TextField fx:id="lastname" layoutX="361.0" layoutY="36.0" />
-      <Label layoutX="20.0" layoutY="131.0" prefHeight="34.0" prefWidth="41.0" text="E-Mail" />
-      <TextField fx:id="email" layoutX="69.0" layoutY="135.0" prefHeight="25.0" prefWidth="177.0" />
-      <Label layoutX="289.0" layoutY="131.0" prefHeight="34.0" prefWidth="50.0" text="Address" />
-      <TextField fx:id="address" layoutX="348.0" layoutY="136.0" prefHeight="25.0" prefWidth="221.0" />
-      <Label layoutX="20.0" layoutY="85.0" prefHeight="34.0" prefWidth="59.0" text="Username" />
-      <TextField fx:id="username" layoutX="89.0" layoutY="90.0" prefHeight="25.0" prefWidth="177.0" />
-      <Label layoutX="289.0" layoutY="86.0" prefHeight="34.0" prefWidth="50.0" text="Password" />
-      <TextField fx:id="password" layoutX="354.0" layoutY="91.0" prefHeight="25.0" prefWidth="221.0" />
-      <Label layoutX="73.0" layoutY="183.0" prefHeight="34.0" prefWidth="105.0" text="Telephone Number" />
-      <TextField fx:id="tel" layoutX="190.0" layoutY="188.0" prefHeight="25.0" prefWidth="177.0" />
-      <Button fx:id="backBtn" layoutX="132.0" layoutY="361.0" mnemonicParsing="false" onAction="#clickBackButton" text="Back" />
-      <Label layoutX="91.0" layoutY="241.0" prefHeight="34.0" prefWidth="105.0" text="ID" />
-      <TextField fx:id="id" layoutX="208.0" layoutY="246.0" prefHeight="25.0" prefWidth="177.0" />
+      <Button fx:id="addBtn" layoutX="263.0" layoutY="387.0" mnemonicParsing="false" onAction="#checkFill" text="Add Admin" />
+      <Label layoutX="80.0" layoutY="74.0" prefHeight="34.0" prefWidth="59.0" text="First Name" />
+      <TextField fx:id="firstname" layoutX="153.0" layoutY="78.0" prefHeight="25.0" prefWidth="177.0" />
+      <Label layoutX="414.0" layoutY="73.0" prefHeight="34.0" prefWidth="59.0" text="Last Name" />
+      <TextField fx:id="lastname" layoutX="487.0" layoutY="77.0" prefHeight="25.0" prefWidth="221.0" />
+      <Label layoutX="89.0" layoutY="184.0" prefHeight="34.0" prefWidth="41.0" text="E-Mail" />
+      <TextField fx:id="email" layoutX="150.0" layoutY="189.0" prefHeight="25.0" prefWidth="177.0" />
+      <Label layoutX="421.0" layoutY="238.0" prefHeight="34.0" prefWidth="50.0" text="Address" />
+      <TextField fx:id="address" layoutX="487.0" layoutY="243.0" prefHeight="70.0" prefWidth="221.0" />
+      <Label layoutX="80.0" layoutY="127.0" prefHeight="34.0" prefWidth="59.0" text="Username" />
+      <TextField fx:id="username" layoutX="150.0" layoutY="131.0" prefHeight="25.0" prefWidth="177.0" />
+      <Label layoutX="419.0" layoutY="127.0" prefHeight="34.0" prefWidth="50.0" text="Password" />
+      <TextField fx:id="password" layoutX="487.0" layoutY="131.0" prefHeight="25.0" prefWidth="221.0" />
+      <Label layoutX="368.0" layoutY="184.0" prefHeight="34.0" prefWidth="105.0" text="Telephone Number" />
+      <TextField fx:id="tel" layoutX="487.0" layoutY="189.0" prefHeight="25.0" prefWidth="221.0" />
+      <Button fx:id="backBtn" layoutX="487.0" layoutY="387.0" mnemonicParsing="false" onAction="#clickBackButton" text="Back" />
+      <Label layoutX="97.0" layoutY="238.0" prefHeight="34.0" prefWidth="25.0" text="ID" />
+      <TextField fx:id="id" layoutX="150.0" layoutY="242.0" prefHeight="25.0" prefWidth="177.0" />
    </children>
 </AnchorPane>

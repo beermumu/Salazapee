@@ -7,28 +7,28 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SignupController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SignupController">
    <children>
-      <Label layoutX="253.0" layoutY="20.0" text="Sign-up" textFill="#ff8605">
+      <Label layoutX="331.0" layoutY="43.0" text="Sign-up" textFill="#ff8605">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
-      <Label layoutX="79.0" layoutY="154.0" text="Name" />
-      <Label layoutX="320.0" layoutY="154.0" text="Lastname" />
-      <Label layoutX="82.0" layoutY="201.0" text="Address" />
-      <Label layoutX="89.0" layoutY="254.0" text="Email" />
-      <Label layoutX="98.0" layoutY="300.0" text="Tel" />
-      <Label layoutX="79.0" layoutY="80.0" text="Username" />
-      <Label layoutX="79.0" layoutY="117.0" text="Password" />
-      <Button layoutX="200.0" layoutY="350.0" mnemonicParsing="false" onAction="#editAccount" text="Sign-up" />
-      <Button layoutX="377.0" layoutY="350.0" mnemonicParsing="false" onAction="#cancelToAccounts" text="Cancel" />
-      <TextField fx:id="userName" layoutX="157.0" layoutY="76.0" />
-      <TextField fx:id="password" layoutX="157.0" layoutY="113.0" />
-      <TextField fx:id="firstName" layoutX="157.0" layoutY="150.0" prefHeight="25.0" prefWidth="149.0" />
-      <TextField fx:id="lastName" layoutX="386.0" layoutY="150.0" />
-      <TextArea fx:id="address" layoutX="155.0" layoutY="187.0" prefHeight="45.0" prefWidth="397.0" />
-      <TextField fx:id="email" layoutX="155.0" layoutY="250.0" />
-      <TextField fx:id="tel" layoutX="155.0" layoutY="296.0" />
+      <Label layoutX="150.0" layoutY="178.0" text="Name" />
+      <Label layoutX="377.0" layoutY="178.0" text="Lastname" />
+      <Label layoutX="140.0" layoutY="241.0" text="Address" />
+      <Label layoutX="149.0" layoutY="303.0" text="Email" />
+      <Label layoutX="158.0" layoutY="349.0" text="Tel" />
+      <Label layoutX="136.0" layoutY="134.0" text="Username" />
+      <Label layoutX="377.0" layoutY="134.0" text="Password" />
+      <TextField fx:id="userName" layoutX="214.0" layoutY="130.0" />
+      <TextField fx:id="password" layoutX="443.0" layoutY="130.0" />
+      <TextField fx:id="firstName" layoutX="214.0" layoutY="174.0" prefHeight="25.0" prefWidth="149.0" />
+      <TextField fx:id="lastName" layoutX="443.0" layoutY="174.0" />
+      <TextArea fx:id="address" layoutX="214.0" layoutY="218.0" prefHeight="62.0" prefWidth="397.0" />
+      <TextField fx:id="email" layoutX="215.0" layoutY="299.0" />
+      <TextField fx:id="tel" layoutX="215.0" layoutY="345.0" />
+      <Button layoutX="260.0" layoutY="416.0" mnemonicParsing="false" onAction="#editAccount" text="Sign-up" />
+      <Button layoutX="511.0" layoutY="416.0" mnemonicParsing="false" onAction="#cancelToAccounts" text="Cancel" />
    </children>
 </Pane>
