@@ -6,13 +6,12 @@ public class Accounts {
     private String lastname;
     private String username;
     private String password;
-    private String type;
     private String address;
     private String email;
     private String tel;
     private int status;
 
-    public Accounts(String id, String firstname, String lastname, String username, String password, String address, String email, String tel,int status) {
+    public Accounts(String id, String firstname, String lastname, String username, String password, String address, String email, String tel) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -21,8 +20,7 @@ public class Accounts {
         this.address = address;
         this.email = email;
         this.tel = tel;
-        this.type = "False";
-        this.status = status;
+        this.status = 0;
     }
 
     public String getAddress() {
@@ -85,11 +83,7 @@ public class Accounts {
         this.password = password;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
+    public void setStatus(int status) {
+        this.status = status;
     }
 }
