@@ -1,6 +1,6 @@
 package databases;
 
-import models.Item;
+import Models.Item;
 
 import java.sql.*;
 import java.util.ArrayList;

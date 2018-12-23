@@ -12,7 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
-import models.Accounts;
+import Models.Accounts;
 
 import java.io.IOException;
 import java.util.Optional;
