@@ -17,8 +17,8 @@
             <TableColumn fx:id="description" prefWidth="272.0" text="Description" />
         </columns>
       </TableView>
-      <Button fx:id="addBtn" layoutX="175.0" layoutY="429.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="50.0" text="Add" />
-      <Button fx:id="editBtn" layoutX="334.0" layoutY="429.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="50.0" text="Edit" />
-      <Button fx:id="deleteBtn" layoutX="577.0" layoutY="462.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" text="Delete" />
+      <Button fx:id="addBtn" layoutX="175.0" layoutY="429.0" mnemonicParsing="false" onAction="#clickAddButton" prefHeight="25.0" prefWidth="50.0" text="Add" />
+      <Button fx:id="editBtn" layoutX="334.0" layoutY="429.0" mnemonicParsing="false" onAction="#clickEditButton" prefHeight="25.0" prefWidth="50.0" text="Edit" />
+      <Button fx:id="deleteBtn" layoutX="576.0" layoutY="429.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" text="Delete" />
    </children>
 </AnchorPane>
