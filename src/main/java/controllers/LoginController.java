@@ -1,6 +1,6 @@
 package controllers;
 
-import databases.AccountCustomerDB;
+import databases.CustomerAccountDB;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -19,7 +19,7 @@ import models.Accounts;
 import java.io.IOException;
 
 public class LoginController {
-    private AccountCustomerDB accountCustomerDB = new AccountCustomerDB();
+    private CustomerAccountDB customerAccountDB = new CustomerAccountDB();
     @FXML
     private Text warningText;
     @FXML
@@ -39,7 +39,7 @@ public class LoginController {
     }
 
     public void initialize() {
-        accounts = accountCustomerDB.loadAccounts();
+        accounts = customerAccountDB.loadAccounts();
         userPassword.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
@@ -99,17 +99,17 @@ public class LoginController {
     private void loginPassToCustomerPage(Stage stage, String name) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/afterLoginRecommendItemHome.fxml"));
         stage.setScene(new Scene(loader.load()));
-        afterPageRecommendItemController controller = loader.getController();
-        controller.setUsername(name);
+//        afterPageRecommendItemController controller = loader.getController();
+//        controller.setUsername(name);
         stage.show();
         warningText.setText("");
     }
 
     private void loginPassToAdminPage(Stage stage, String name) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/afterLoginRecommendItemHome.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/adminstartpage.fxml"));
         stage.setScene(new Scene(loader.load()));
-        afterPageRecommendItemController controller = loader.getController();
-        controller.setUsername(name);
+//        afterPageRecommendItemController controller = loader.getController();
+//        controller.setUsername(name);
         stage.show();
         warningText.setText("");
     }

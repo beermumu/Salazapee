@@ -6,7 +6,7 @@ import models.Accounts;
 
 import java.sql.*;
 
-public class AccountCustomerDB {
+public class CustomerAccountDB {
     public static ObservableList loadAccounts() {
         ObservableList<Accounts> accounts = FXCollections.observableArrayList();
         try {
@@ -57,23 +57,23 @@ public class AccountCustomerDB {
         }
     }
 
-    public static void deleteAccountsCustomerDB(int id) {
-        try {
-            Class.forName("org.sqlite.JDBC");
-            String dbURL = "jdbc:sqlite:Database.db";
-            Connection connection = DriverManager.getConnection(dbURL);
-            if (connection != null) {
-                String query = "Delete from Accounts where id == \'" + id + "\'";
-                PreparedStatement p = connection.prepareStatement(query);
-                p.executeUpdate();
-                connection.close();
-            }
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+//    public static void deleteAccountsCustomerDB(int id) {
+//        try {
+//            Class.forName("org.sqlite.JDBC");
+//            String dbURL = "jdbc:sqlite:Database.db";
+//            Connection connection = DriverManager.getConnection(dbURL);
+//            if (connection != null) {
+//                String query = "Delete from Accounts where id == \'" + id + "\'";
+//                PreparedStatement p = connection.prepareStatement(query);
+//                p.executeUpdate();
+//                connection.close();
+//            }
+//        } catch (ClassNotFoundException e) {
+//            e.printStackTrace();
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     public static void editAccountsCustomerDB(int id, String firstname, String lastname, String username, String password, String address, String email, String tel) {
         try {

@@ -1,6 +1,6 @@
 //package controllers;
 //
-//import databases.AccountCustomerDB;
+//import databases.CustomerAccountDB;
 //import javafx.event.ActionEvent;
 //import javafx.fxml.FXML;
 //import javafx.fxml.FXMLLoader;
@@ -35,7 +35,7 @@
 //    public void editAccount(ActionEvent event) {
 //        if (accounts == null) {
 //            if (!firstName.getText().isEmpty() && !lastName.getText().isEmpty() && !userName.getText().isEmpty() && !password.getText().isEmpty() && !address.getText().isEmpty() && !email.getText().isEmpty() && !tel.getText().isEmpty()) {
-//                AccountCustomerDB.saveAccountsDB(AccountCustomerDB.getCreateAccountsID(), this.firstName.getText(), this.lastName.getText(), this.userName.getText(), this.password.getText(), this.address.getText(), this.email.getText(), this.tel.getText());
+//                CustomerAccountDB.saveAccountsDB(CustomerAccountDB.getCreateAccountsID(), this.firstName.getText(), this.lastName.getText(), this.userName.getText(), this.password.getText(), this.address.getText(), this.email.getText(), this.tel.getText());
 //                this.firstName.setText("");
 //                this.lastName.setText("");
 //                this.userName.setText("");

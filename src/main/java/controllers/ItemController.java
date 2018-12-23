@@ -1,6 +1,6 @@
 //package controllers;
 //
-//import databases.ItemDatabase;
+//import databases.CustomerItemDB;
 //import javafx.event.ActionEvent;
 //import javafx.fxml.FXML;
 //import javafx.fxml.FXMLLoader;
@@ -18,7 +18,7 @@
 //import java.util.ArrayList;
 //
 //public class ItemController {
-//    ItemDatabase itemDatabase =new ItemDatabase();
+//    CustomerItemDB itemDatabase =new CustomerItemDB();
 //    ArrayList<Item> itemArrayList = itemDatabase.loadData();
 //
 //    private String name;
