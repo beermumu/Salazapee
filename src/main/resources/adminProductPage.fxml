@@ -5,7 +5,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="601.0" prefWidth="897.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminAllProductPage">
+<AnchorPane prefHeight="601.0" prefWidth="897.0" xmlns="http://javafx.com/javafx/10.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminAllProductPage">
    <children>
       <TableView fx:id="productTableView" layoutX="17.0" layoutY="14.0" prefHeight="336.0" prefWidth="877.0">
         <columns>
@@ -19,6 +19,6 @@
       </TableView>
       <Button fx:id="addBtn" layoutX="175.0" layoutY="429.0" mnemonicParsing="false" onAction="#clickAddButton" prefHeight="25.0" prefWidth="50.0" text="Add" />
       <Button fx:id="editBtn" layoutX="334.0" layoutY="429.0" mnemonicParsing="false" onAction="#clickEditButton" prefHeight="25.0" prefWidth="50.0" text="Edit" />
-      <Button fx:id="deleteBtn" layoutX="576.0" layoutY="429.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" text="Delete" />
+      <Button fx:id="deleteBtn" layoutX="576.0" layoutY="429.0" mnemonicParsing="false" onAction="#deleteAccount" prefHeight="25.0" prefWidth="65.0" text="Delete" />
    </children>
 </AnchorPane>

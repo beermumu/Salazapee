@@ -5,12 +5,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import models.Item;
+
+import java.util.Optional;
 
 
 public class AdminAllProductPage {
@@ -45,12 +45,32 @@ public class AdminAllProductPage {
 
     @FXML
     public void clickEditButton(ActionEvent event) throws Exception{
-        Button button = (Button) event.getSource();
-        Stage stage = (Stage) button.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/editProductPage.fxml"));
-        stage.setScene(new Scene(loader.load()));
-        stage.show();
+        if (productTableView.getSelectionModel().getSelectedItem() != null) {
+            Button button = (Button) event.getSource();
+            Stage stage = (Stage) button.getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/editProductPage.fxml"));
+            stage.setScene(new Scene(loader.load()));
+            AdminEditProductController edit = loader.getController();
+            edit.setEditAccounts(productTableView.getSelectionModel().getSelectedItem());
+            stage.show();
+        }
     }
 
     //delete button
+    @FXML
+    public void deleteAccount(ActionEvent event){
+//        String id = accountsTableView.getSelectionModel().getSelectedItem().getId();
+        String id = productTableView.getSelectionModel().getSelectedItem().getId();
+        Alert ConfirmationAlert = new Alert(Alert.AlertType.CONFIRMATION, "Do you want to delete this item?", ButtonType.YES, ButtonType.NO);
+        ConfirmationAlert.setHeaderText("");
+        Optional optional = ConfirmationAlert.showAndWait();
+        if (optional.get() == ButtonType.YES) {
+            adminItemDB.deleteItem(id);
+            productTableView.setItems(adminItemDB.loadItem());
+            Alert informationAlert = new Alert(Alert.AlertType.INFORMATION,"This Item is deleted.");
+            informationAlert.setTitle("Deleted");
+            informationAlert.setHeaderText("");
+            informationAlert.showAndWait();
+        }
+    }
 }

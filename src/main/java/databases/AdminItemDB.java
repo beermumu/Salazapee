@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import models.Item;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class AdminItemDB {
 
@@ -95,5 +96,28 @@ public class AdminItemDB {
     }
 
 
-
+    public static ArrayList getItemID(){
+        ArrayList<String> items = new ArrayList<>();
+        try {
+            Class.forName(dbName);
+            Connection connection = DriverManager.getConnection(dbURL);
+            if (connection != null) {
+                String query = "select * from Item";
+                Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery(query);
+                while (resultSet.next()) {
+                    String id = resultSet.getString("ID");
+                    items.add(id);
+                }
+                statement.close();
+                resultSet.close();
+                connection.close();
+            }
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return items;
+    }
 }
