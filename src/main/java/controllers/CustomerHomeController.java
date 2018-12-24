@@ -1,6 +1,8 @@
 package controllers;
 
 import databases.CustomerItemDB;
+import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -30,6 +32,8 @@ public class CustomerHomeController {
     @FXML
     private Button deleteProductBtn, clearCartBtn, purchaseBtn, searchProductBtn, resetFillterBtn;
 
+    ObservableList<Item> carts;
+
     @FXML
     private void initialize() {
         cart = new Cart();
@@ -42,13 +46,6 @@ public class CustomerHomeController {
         columnDescription.setCellValueFactory(new PropertyValueFactory<Item, String>("description"));
         productTableView.setItems(customerItemDB.loadDataOsv());
 
-        cartColumnID.setCellValueFactory(new PropertyValueFactory<Item, String>("id"));
-        cartColumnType.setCellValueFactory(new PropertyValueFactory<Item, String>("type"));
-        cartColumnName.setCellValueFactory(new PropertyValueFactory<Item, String>("name"));
-        cartColumnQuantity.setCellValueFactory(new PropertyValueFactory<Item, Integer>("quantity"));
-        cartColumnCost.setCellValueFactory(new PropertyValueFactory<Item, Integer>("cost"));
-        cartColumnDescription.setCellValueFactory(new PropertyValueFactory<Item, String>("description"));
-        cartTableView.setItems((cart.getCart()));
 
 //        cartTableView.setOnAction( e -> changeCourse());
 //        public void changeCourse(){
@@ -84,5 +81,12 @@ public class CustomerHomeController {
 
     public void addItemToCart(Item item) {
         cart.addItem(item);
+        cartColumnID.setCellValueFactory(new PropertyValueFactory<Item, String>("id"));
+        cartColumnType.setCellValueFactory(new PropertyValueFactory<Item, String>("type"));
+        cartColumnName.setCellValueFactory(new PropertyValueFactory<Item, String>("name"));
+        cartColumnQuantity.setCellValueFactory(new PropertyValueFactory<Item, Integer>("quantity"));
+        cartColumnCost.setCellValueFactory(new PropertyValueFactory<Item, Integer>("cost"));
+        cartColumnDescription.setCellValueFactory(new PropertyValueFactory<Item, String>("description"));
+        cartTableView.setItems((cart.getCart()));
     }
 }

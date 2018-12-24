@@ -49,7 +49,13 @@ public class ItemDetailController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/itemDetail-View.fxml"));
             CustomerHomeController customerHomeController = loader.getController();
             customerHomeController.addItemToCart(new Item(item.getId(), item.getType(), item.getName(),qty, cost, item.getDescription()));
-            
+
+
+            //ปิดโปแกรมเมื่อกดเสร็จ แต้มันชนกับ ข้างบนไว้ข้างล่างไม่ปิด
+//            Button button = (Button) event.getSource();
+//            Stage stage = (Stage) button.getScene().getWindow();
+//            stage.close();
+
 
         } catch (Exception e) {
 //            throw new IllegalArgumentException();
