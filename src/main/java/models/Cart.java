@@ -26,4 +26,8 @@ public class Cart {
     public ObservableList<Item> getCart() {
         return cart;
     }
+
+    public boolean isInCart(Item item){
+        return cart.contains(item);
+    }
 }
