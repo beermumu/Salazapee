@@ -133,12 +133,15 @@ public class CustomerHomeController {
 
     @FXML
     public void purchaseBtn(ActionEvent event) {
+        int mess = 0;
         for (Item a : carts){
             Item b =  customerItemDB.searchItem(a.getId());
             customerItemDB.editItem(a.getId(),a.getType(),a.getName(),b.getQuantity() - a.getQuantity(),a.getCost(),a.getDescription());
+            int price = a.getQuantity() * a.getCost();
+            mess = mess + price;
         }
         updateMain();
-        Alert informationAlert = new Alert(Alert.AlertType.INFORMATION,"The Items in cart is purchase.");
+        Alert informationAlert = new Alert(Alert.AlertType.INFORMATION,"Thank you fot purchase\n Total cost is " + mess);
         informationAlert.setTitle("Purchase");
         informationAlert.setHeaderText("");
         informationAlert.showAndWait();
