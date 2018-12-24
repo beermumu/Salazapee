@@ -82,6 +82,40 @@ public class CustomerItemDB {
         }
     }
 
+    public static Item searchItem(String productID ,int quan) {
+        Item item = null;
+        try {
+            Class.forName("org.sqlite.JDBC");
+            String dbURL = "jdbc:sqlite:Database.db";
+            Connection connection = DriverManager.getConnection(dbURL);
+            if (connection != null) {
+                String query = "Select * from Item where item.ID=='" + productID + "'";
+                Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery(query);
+
+                if (resultSet.getString("ID").equals(productID)) {
+                    String id = resultSet.getString(1);
+                    String type = resultSet.getString(2);
+                    String name = resultSet.getString(3);
+                    int quantity = resultSet.getInt(4);
+                    int cost = resultSet.getInt(5);
+                    String description = resultSet.getString(6);
+//                    if ()
+                    quantity = quan;
+                    item = new Item(id, type, name, quantity, cost, description);
+                    connection.close();
+                    return item;
+                }
+
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return item;
+    }
+
     public static Item searchItem(String productID) {
         Item item = null;
         try {
@@ -100,6 +134,7 @@ public class CustomerItemDB {
                     int quantity = resultSet.getInt(4);
                     int cost = resultSet.getInt(5);
                     String description = resultSet.getString(6);
+//                    if ()
                     item = new Item(id, type, name, quantity, cost, description);
                     connection.close();
                     return item;
@@ -114,4 +149,23 @@ public class CustomerItemDB {
         return item;
     }
 
+    public static void editItem(String id, String type , String name, int quantity , int cost , String description) {
+        try {
+            Class.forName("org.sqlite.JDBC");
+            String dbURL = "jdbc:sqlite:Database.db";
+            Connection connection = DriverManager.getConnection(dbURL);
+            if (connection != null) {
+                String query = "update Item set ID = '" + id + "' , " +
+                        "Type = '" + type + "' , Name = '" + name + "' , Quantity = '" + quantity + "' , Cost = '" + cost +"' " +
+                        ", Description = '" + description + "' where Item.ID =='" + id + "'";
+                PreparedStatement p = connection.prepareStatement(query);
+                p.executeUpdate();
+                connection.close();
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
