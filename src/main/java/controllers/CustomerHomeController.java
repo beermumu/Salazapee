@@ -11,6 +11,7 @@ import javafx.scene.input.MouseEvent;
 import models.Item;
 
 import java.io.IOException;
+import java.util.Optional;
 
 public class CustomerHomeController {
     private CustomerItemDB customerItemDB;
@@ -115,13 +116,23 @@ public class CustomerHomeController {
 
     @FXML
     public void deleteAccount(ActionEvent event) {
-        String id = cartTableView.getSelectionModel().getSelectedItem().getId();
-        for (Item a : carts) {
-            if (a.getId().equals(id)) {
-                carts.remove(a);
+        Alert ConfirmationAlert = new Alert(Alert.AlertType.CONFIRMATION, "Do you want to delete this item in cart?", ButtonType.YES, ButtonType.NO);
+        ConfirmationAlert.setHeaderText("");
+        Optional optional = ConfirmationAlert.showAndWait();
+        if (optional.get() == ButtonType.YES) {
+            String id = cartTableView.getSelectionModel().getSelectedItem().getId();
+            for (Item a : carts) {
+                if (a.getId().equals(id)) {
+                    carts.remove(a);
+                }
             }
+            update();
+            Alert informationAlert = new Alert(Alert.AlertType.INFORMATION,"This item is deleted.");
+            informationAlert.setTitle("Deleted");
+            informationAlert.setHeaderText("");
+            informationAlert.showAndWait();
         }
-        update();
+
     }
 
     @FXML
@@ -153,9 +164,19 @@ public class CustomerHomeController {
     }
     @FXML
     public void clearCarts(ActionEvent event) {
-        carts = FXCollections.observableArrayList();
-        purchaseBtn.setDisable(true);
-        update();
+        Alert ConfirmationAlert = new Alert(Alert.AlertType.CONFIRMATION, "Do you want to reset items in cart?", ButtonType.YES, ButtonType.NO);
+        ConfirmationAlert.setHeaderText("");
+        Optional optional = ConfirmationAlert.showAndWait();
+        if (optional.get() == ButtonType.YES) {
+            carts = FXCollections.observableArrayList();
+            purchaseBtn.setDisable(true);
+            update();
+            Alert informationAlert = new Alert(Alert.AlertType.INFORMATION,"This cart is reset.");
+            informationAlert.setTitle("Reset");
+            informationAlert.setHeaderText("");
+            informationAlert.showAndWait();
+        }
+
     }
 
 }
