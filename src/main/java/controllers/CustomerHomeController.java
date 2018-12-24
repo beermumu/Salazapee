@@ -11,6 +11,8 @@ import javafx.scene.input.MouseEvent;
 import models.Item;
 
 import java.io.IOException;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Optional;
 
 public class CustomerHomeController {
@@ -41,7 +43,16 @@ public class CustomerHomeController {
         columnQuantity.setCellValueFactory(new PropertyValueFactory<Item, Integer>("quantity"));
         columnCost.setCellValueFactory(new PropertyValueFactory<Item, Integer>("cost"));
         columnDescription.setCellValueFactory(new PropertyValueFactory<Item, String>("description"));
-        productTableView.setItems(customerItemDB.loadDataOsv());
+        ObservableList<Item> products = customerItemDB.loadDataOsv();
+        Collections.sort(products, new Comparator<Item>() {
+            @Override
+            public int compare(Item o1, Item o2) {
+                if (Integer.parseInt(o1.getId())<Integer.parseInt(o2.getId())) return -1;
+                if (Integer.parseInt(o1.getId())>Integer.parseInt(o2.getId())) return 1;
+                return 0;
+            }
+        });
+        productTableView.setItems(products);
         buyQuan.setDisable(true);
         saveBtn.setDisable(true);
         purchaseBtn.setDisable(true);
