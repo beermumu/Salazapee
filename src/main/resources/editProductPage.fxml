@@ -5,22 +5,28 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="500.0" prefWidth="800.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminEditProductController">
    <children>
-      <Label layoutX="135.0" layoutY="78.0" text="Name" />
-      <TextField fx:id="name" layoutX="182.0" layoutY="74.0" />
-      <Label layoutX="138.0" layoutY="188.0" text="Type" />
-      <Label layoutX="128.0" layoutY="130.0" text="Quantity" />
-      <TextField fx:id="cost" layoutX="476.0" layoutY="74.0" prefHeight="25.0" prefWidth="230.0" />
-      <TextField fx:id="quantity" layoutX="182.0" layoutY="126.0" prefHeight="25.0" prefWidth="149.0" />
-      <Label layoutX="432.0" layoutY="78.0" text="Cost" />
-      <Label layoutX="402.0" layoutY="188.0" text="Description" />
-      <TextField fx:id="id" layoutX="476.0" layoutY="126.0" prefHeight="25.0" prefWidth="230.0" />
-      <ComboBox fx:id="type" layoutX="182.0" layoutY="181.0" prefWidth="150.0" />
-      <TextField fx:id="description" layoutX="476.0" layoutY="181.0" prefHeight="81.0" prefWidth="230.0" />
-      <Button fx:id="addBtn" layoutX="271.0" layoutY="358.0" mnemonicParsing="false" onAction="#clickEditButton" text="Edit" />
-      <Button layoutX="476.0" layoutY="358.0" mnemonicParsing="false" onAction="#clickBackButton" text="Back" />
-      <Label layoutX="438.0" layoutY="130.0" text="ID" />
+      <Label layoutX="319.0" layoutY="41.0" text="Edit Product" textFill="#ff8605">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="133.0" layoutY="139.0" text="Name" />
+      <TextField fx:id="name" layoutX="180.0" layoutY="135.0" prefHeight="23.0" prefWidth="149.0" />
+      <Label layoutX="430.0" layoutY="191.0" text="Type" />
+      <Label layoutX="126.0" layoutY="191.0" text="Quantity" />
+      <TextField fx:id="cost" layoutX="474.0" layoutY="135.0" prefHeight="25.0" prefWidth="230.0" />
+      <TextField fx:id="quantity" layoutX="180.0" layoutY="187.0" prefHeight="25.0" prefWidth="149.0" />
+      <Label layoutX="430.0" layoutY="139.0" text="Cost" />
+      <Label layoutX="400.0" layoutY="249.0" text="Description" />
+      <TextField fx:id="id" layoutX="180.0" layoutY="244.0" prefHeight="25.0" prefWidth="149.0" />
+      <ComboBox fx:id="type" layoutX="474.0" layoutY="187.0" prefHeight="23.0" prefWidth="230.0" />
+      <TextField fx:id="description" layoutX="474.0" layoutY="242.0" prefHeight="81.0" prefWidth="230.0" />
+      <Button fx:id="addBtn" layoutX="271.0" layoutY="401.0" mnemonicParsing="false" onAction="#clickEditButton" text="Edit" />
+      <Button layoutX="476.0" layoutY="401.0" mnemonicParsing="false" onAction="#clickBackButton" text="Back" />
+      <Label layoutX="137.0" layoutY="248.0" text="ID" />
    </children>
 </AnchorPane>
