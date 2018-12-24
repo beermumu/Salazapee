@@ -11,56 +11,95 @@
 
 <AnchorPane fx:id="homeview" prefHeight="500.0" prefWidth="800.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CustomerHomeController">
    <children>
-      <Label layoutY="-3.0" prefHeight="68.0" prefWidth="800.0" style="-fx-background-color: #d85b37 ;" text="Salazapee" textFill="WHITE">
+      <Label layoutY="-3.0" prefHeight="68.0" prefWidth="800.0" style="-fx-background-color: #e38e75 ;" text="   Salazapee" textFill="WHITE">
          <font>
             <Font size="36.0" />
          </font>
       </Label>
-      <TableView fx:id="productTableView" layoutX="14.0" layoutY="108.0" prefHeight="468.0" prefWidth="380.0">
+      <TableView fx:id="productTableView" layoutX="77.0" layoutY="81.0" onMouseClicked="#clickOnProduct" prefHeight="201.0" prefWidth="703.0">
          <columns>
-            <TableColumn fx:id="columnName" prefWidth="134.99998474121094" text="Name">
+            <TableColumn fx:id="columnID" prefWidth="37.00001525878906" text="ID">
                <cellValueFactory>
                   <PropertyValueFactory property="subjectID" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn fx:id="columnQuantity" prefWidth="115.0" text="Quantity">
+            <TableColumn fx:id="columnType" prefWidth="97.00001525878906" text="TYPE">
                <cellValueFactory>
                   <PropertyValueFactory property="subjectID" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn fx:id="columnPrice" prefWidth="129.0" text="Price">
+            <TableColumn fx:id="columnName" prefWidth="187.0" text="NAME">
+               <cellValueFactory>
+                  <PropertyValueFactory property="subjectID" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="columnQuantity" prefWidth="74.0" text="QUANTITY">
+               <cellValueFactory>
+                  <PropertyValueFactory property="subjectID" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="columnCost" prefWidth="45.0" text="COST">
+               <cellValueFactory>
+                  <PropertyValueFactory property="subjectID" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="columnDescription" prefWidth="260.0" text="DESCRIPTION">
                <cellValueFactory>
                   <PropertyValueFactory property="subjectID" />
                </cellValueFactory>
             </TableColumn>
          </columns>
       </TableView>
-      <Button fx:id="deleteProductBtn" layoutX="444.0" layoutY="527.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="94.0" text="Delete item" />
-      <Button fx:id="clearCartBtn" layoutX="555.0" layoutY="527.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="94.0" text="Clear Cart" />
-      <Button fx:id="purchaseBtn" layoutX="664.0" layoutY="527.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="94.0" text="Purchase" />
-      <Button fx:id="resetFillterBtn" layoutX="685.0" layoutY="31.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="79.0" text="Reset Fillter" />
-      <Button fx:id="searchProductBtn" layoutX="600.0" layoutY="31.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="79.0" text="Search" />
-      <TableView fx:id="cartTableView" layoutX="427.0" layoutY="108.0" prefHeight="410.0" prefWidth="347.0">
+      <Button fx:id="deleteProductBtn" layoutX="30.0" layoutY="455.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" text="Delete Product">
+         <font>
+            <Font size="10.0" />
+         </font></Button>
+      <Button fx:id="clearCartBtn" layoutX="153.0" layoutY="455.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" text="Clear Cart">
+         <font>
+            <Font size="10.0" />
+         </font></Button>
+      <Button fx:id="purchaseBtn" layoutX="684.0" layoutY="457.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="94.0" text="Purchase">
+         <font>
+            <Font size="10.0" />
+         </font></Button>
+      <Button fx:id="resetFillterBtn" layoutX="605.0" layoutY="28.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="79.0" text="Reset Fillter" />
+      <Button fx:id="searchProductBtn" layoutX="520.0" layoutY="28.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="79.0" text="Search" />
+      <Label layoutX="14.0" layoutY="170.0" prefHeight="30.0" prefWidth="125.0" text="Products" />
+      <Label layoutX="30.0" layoutY="356.0" prefHeight="30.0" prefWidth="125.0" text="Cart" />
+      <ComboBox fx:id="typeCombobox" layoutX="371.0" layoutY="28.0" prefHeight="30.0" prefWidth="143.0" promptText="------- Type -------" />
+      <TableView fx:id="cartTableView" layoutX="77.0" layoutY="293.0" prefHeight="155.0" prefWidth="703.0">
          <columns>
-            <TableColumn fx:id="cartColumnName" prefWidth="138.0" text="Name">
+            <TableColumn fx:id="cartColumnID" prefWidth="37.0" text="ID">
                <cellValueFactory>
                   <PropertyValueFactory property="subjectID" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn fx:id="cartColumnQuantity" prefWidth="104.0" text="Quantity">
+            <TableColumn fx:id="cartColumnType" prefWidth="100.0" text="TYPE">
                <cellValueFactory>
                   <PropertyValueFactory property="subjectID" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn fx:id="cartColumnPrice" prefWidth="104.0" text="Price">
+            <TableColumn fx:id="cartColumnName" prefWidth="188.0" text="NAME">
+               <cellValueFactory>
+                  <PropertyValueFactory property="subjectID" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="cartColumnQuantity" prefWidth="73.0" text="QUANTITY">
+               <cellValueFactory>
+                  <PropertyValueFactory property="subjectID" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="cartColumnCost" prefWidth="46.0" text="COST">
+               <cellValueFactory>
+                  <PropertyValueFactory property="subjectID" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="cartColumnDescription" prefWidth="258.0" text="DESCRIPTION">
                <cellValueFactory>
                   <PropertyValueFactory property="subjectID" />
                </cellValueFactory>
             </TableColumn>
          </columns>
       </TableView>
-      <Label layoutX="14.0" layoutY="71.0" prefHeight="30.0" prefWidth="125.0" text="Products" />
-      <Label layoutX="427.0" layoutY="71.0" prefHeight="30.0" prefWidth="125.0" text="Cart" />
-      <ComboBox fx:id="typeCombobox" layoutX="451.0" layoutY="31.0" prefHeight="30.0" prefWidth="143.0" promptText="------- Type -------" />
    </children>
 </AnchorPane>

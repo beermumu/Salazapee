@@ -8,36 +8,51 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="800.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PaymentView">
+<AnchorPane prefHeight="500.0" prefWidth="800.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.paymentController">
    <children>
-      <Label layoutX="-1.0" layoutY="-1.0" prefHeight="68.0" prefWidth="800.0" style="-fx-background-color: #d85b37;" text="Salazapee" textFill="WHITE">
+      <Label layoutX="-1.0" layoutY="-1.0" prefHeight="68.0" prefWidth="807.0" style="-fx-background-color: #e38e75 ;" text="   Salazapee" textFill="WHITE">
          <font>
             <Font size="36.0" />
          </font>
       </Label>
-      <Label layoutX="493.0" layoutY="155.0" prefHeight="17.0" prefWidth="110.0" text="Total Price" />
-      <Label fx:id="totalPriceLabel" layoutX="603.0" layoutY="152.0" prefHeight="25.0" prefWidth="125.0" text="???" />
-      <TableView fx:id="purchaseTableView" layoutX="21.0" layoutY="113.0" prefHeight="375.0" prefWidth="350.0">
+      <Label layoutX="294.0" layoutY="379.0" prefHeight="17.0" prefWidth="70.0" text="Totlal Price" />
+      <Label fx:id="totalPriceLabel" layoutX="391.0" layoutY="375.0" prefHeight="25.0" prefWidth="125.0" text="???" />
+      <Label layoutX="21.0" layoutY="72.0" prefHeight="30.0" prefWidth="125.0" text="Products Details" />
+      <Button fx:id="purchaseBtn" layoutX="224.0" layoutY="421.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="110.0" text="Purchase" />
+      <Button fx:id="cancelBtn" layoutX="405.0" layoutY="421.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="110.0" text="Cancel" />
+      <TableView fx:id="purchaseTableView" layoutX="15.0" layoutY="105.0" prefHeight="255.0" prefWidth="768.0">
          <columns>
-            <TableColumn fx:id="cartColumnName" prefWidth="150.0" text="Name">
+            <TableColumn fx:id="columnName" prefWidth="29.99999237060547" text="ID">
                <cellValueFactory>
                   <PropertyValueFactory property="subjectID" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn fx:id="cartColumnQuantity" prefWidth="65.0" text="Quantity">
+            <TableColumn fx:id="columnQuantity" prefWidth="108.0" text="TYPE">
                <cellValueFactory>
                   <PropertyValueFactory property="subjectID" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn fx:id="cartColumnPrice" prefWidth="134.0" text="Price">
+            <TableColumn fx:id="columnPrice" prefWidth="182.0" text="NAME">
+               <cellValueFactory>
+                  <PropertyValueFactory property="subjectID" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="columnName1" text="QUANTITY">
+               <cellValueFactory>
+                  <PropertyValueFactory property="subjectID" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="columnName11" prefWidth="49.0" text="COST">
+               <cellValueFactory>
+                  <PropertyValueFactory property="subjectID" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="columnName111" prefWidth="318.0" text="DESCRIPTION">
                <cellValueFactory>
                   <PropertyValueFactory property="subjectID" />
                </cellValueFactory>
             </TableColumn>
          </columns>
       </TableView>
-      <Label layoutX="21.0" layoutY="83.0" prefHeight="30.0" prefWidth="125.0" text="Products Details" />
-      <Button fx:id="purchaseBtn" layoutX="447.0" layoutY="247.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="110.0" text="Purchase" />
-      <Button fx:id="cancelBtn" layoutX="629.0" layoutY="247.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="110.0" text="Cancel" />
    </children>
 </AnchorPane>
