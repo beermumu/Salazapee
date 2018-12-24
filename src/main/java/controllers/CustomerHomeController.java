@@ -50,6 +50,7 @@ public class CustomerHomeController {
         productTableView.setItems(customerItemDB.loadDataOsv());
         buyQuan.setDisable(true);
         saveBtn.setDisable(true);
+        purchaseBtn.setDisable(true);
     }
 
     @FXML
@@ -64,29 +65,48 @@ public class CustomerHomeController {
     public void clickSaveButton(ActionEvent event) throws Exception {
         int quanT = productTableView.getSelectionModel().getSelectedItem().getQuantity();
         if (buyQuan.getText().equals("")) {
-            System.err.println("Quantity is null.");
+            Alert errorAlert = new Alert(Alert.AlertType.ERROR,"Fill the correct input.");
+            errorAlert.setTitle("ERROR!");
+            errorAlert.setHeaderText("");
+            errorAlert.showAndWait();
         }
+
         int quan = Integer.parseInt(buyQuan.getText());
         if (quan > quanT) {
-            System.err.println("You require is more than stock.");
+            Alert errorAlert = new Alert(Alert.AlertType.ERROR,"You require is more than stock.");
+            errorAlert.setTitle("ERROR!");
+            errorAlert.setHeaderText("");
+            errorAlert.showAndWait();
         } else {
-            String id = productTableView.getSelectionModel().getSelectedItem().getId();
-            int oldQuan = 0;
-            for (Item b : carts) {
-                if (b.getId().equals(id)) {
-                    oldQuan = oldQuan + b.getQuantity();
-                }
-            }
-            oldQuan = oldQuan + quan;
-            if (oldQuan > quanT) {
-                System.err.println("You require is more than stock.");
+            if (buyQuan.getText().equals("0")) {
+                Alert errorAlert = new Alert(Alert.AlertType.ERROR,"Please enter quantity more than 0.");
+                errorAlert.setTitle("ERROR!");
+                errorAlert.setHeaderText("");
+                errorAlert.showAndWait();
+                buyQuan.setText("");
             }else {
-                Item a = customerItemDB.searchItem(id, quan);
-                carts.add(a);
-                update();
+                String id = productTableView.getSelectionModel().getSelectedItem().getId();
+                int oldQuan = 0;
+                for (Item b : carts) {
+                    if (b.getId().equals(id)) {
+                        oldQuan = oldQuan + b.getQuantity();
+                    }
+                }
+                oldQuan = oldQuan + quan;
+                if (oldQuan > quanT) {
+                    Alert errorAlert = new Alert(Alert.AlertType.ERROR, "You require is more than stock.");
+                    errorAlert.setTitle("ERROR!");
+                    errorAlert.setHeaderText("");
+                    errorAlert.showAndWait();
+                } else {
+                    Item a = customerItemDB.searchItem(id, quan);
+                    carts.add(a);
+                    update();
+                }
+                buyQuan.setText("");
             }
-            buyQuan.setText("");
         }
+        purchaseBtn.setDisable(false);
     }
 
 
@@ -138,6 +158,7 @@ public class CustomerHomeController {
     @FXML
     public void clearCarts(ActionEvent event) {
         carts = FXCollections.observableArrayList();
+        purchaseBtn.setDisable(true);
         update();
     }
 
