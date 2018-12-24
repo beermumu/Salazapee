@@ -1,15 +1,14 @@
 package controllers;
 
 import databases.CustomerItemDB;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -17,6 +16,7 @@ import models.Cart;
 import models.Item;
 
 import java.io.IOException;
+import java.util.Optional;
 
 public class CustomerHomeController {
     private CustomerItemDB customerItemDB;
@@ -31,8 +31,11 @@ public class CustomerHomeController {
     private ComboBox typeCombobox;
     @FXML
     private Button deleteProductBtn, clearCartBtn, purchaseBtn, searchProductBtn, resetFillterBtn;
-
-    ObservableList<Item> carts;
+    @FXML
+    TextField buyQuan;
+    ObservableList<Item> carts = FXCollections.observableArrayList();
+    @FXML
+    Button saveBtn;
 
     @FXML
     private void initialize() {
@@ -45,39 +48,99 @@ public class CustomerHomeController {
         columnCost.setCellValueFactory(new PropertyValueFactory<Item, Integer>("cost"));
         columnDescription.setCellValueFactory(new PropertyValueFactory<Item, String>("description"));
         productTableView.setItems(customerItemDB.loadDataOsv());
-
-
-//        cartTableView.setOnAction( e -> changeCourse());
-//        public void changeCourse(){
-//            try {
-//                courseChange.remove(courseComboBox.getValue());
-//                mainCourse = FXCollections.observableArrayList(courseChange);
-//                courseChange.addAll(course);
-//                courseComboBox2.setItems(mainCourse);
-//            }catch (NullPointerException e){}
-//        }
-
+        buyQuan.setDisable(true);
+        saveBtn.setDisable(true);
     }
 
     @FXML
     public void clickOnProduct(MouseEvent event) throws IOException {
-        Item item = (Item) productTableView.getSelectionModel().getSelectedItem();
-        if (event.getClickCount() == 2) {
-
-//            System.out.println(productTableView.getSelectionModel().getSelectedItem().getId());
-//            System.out.println(productTableView.getSelectionModel().getSelectedItem().getDescription());
-//            System.out.println(productTableView.getSelectionModel().getSelectedItem().getName());
-//            System.out.println(productTableView.getSelectionModel().getSelectedItem().getQuantity());
-//            System.out.println(productTableView.getSelectionModel().getSelectedItem().getCost());
-
-            Stage stage = new Stage();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/itemDetail-View.fxml"));
-            stage.setScene(new Scene(loader.load()));
-            ItemDetailController itemDetailController = loader.getController();
-            itemDetailController.setProductData(customerItemDB.searchItem(productTableView.getSelectionModel().getSelectedItem().getId()));
-            stage.show();
+        if (event.getClickCount() == 1) {
+            buyQuan.setDisable(false);
+            saveBtn.setDisable(false);
         }
     }
+
+    @FXML
+    public void clickSaveButton(ActionEvent event) throws Exception {
+        int quanT = productTableView.getSelectionModel().getSelectedItem().getQuantity();
+        if (buyQuan.getText().equals("")) {
+            System.err.println("Quantity is null.");
+        }
+        int quan = Integer.parseInt(buyQuan.getText());
+        if (quan > quanT) {
+            System.err.println("You require is more than stock.");
+        } else {
+            String id = productTableView.getSelectionModel().getSelectedItem().getId();
+            int oldQuan = 0;
+            for (Item b : carts) {
+                if (b.getId().equals(id)) {
+                    oldQuan = oldQuan + b.getQuantity();
+                }
+            }
+            oldQuan = oldQuan + quan;
+            if (oldQuan > quanT) {
+                System.err.println("You require is more than stock.");
+            }else {
+                Item a = customerItemDB.searchItem(id, quan);
+                carts.add(a);
+                update();
+            }
+            buyQuan.setText("");
+        }
+    }
+
+
+    public void update() {
+        cartColumnID.setCellValueFactory(new PropertyValueFactory<Item, String>("id"));
+        cartColumnType.setCellValueFactory(new PropertyValueFactory<Item, String>("type"));
+        cartColumnName.setCellValueFactory(new PropertyValueFactory<Item, String>("name"));
+        cartColumnQuantity.setCellValueFactory(new PropertyValueFactory<Item, Integer>("quantity"));
+        cartColumnCost.setCellValueFactory(new PropertyValueFactory<Item, Integer>("cost"));
+        cartColumnDescription.setCellValueFactory(new PropertyValueFactory<Item, String>("description"));
+        cartTableView.setItems(carts);
+    }
+
+    @FXML
+    public void deleteAccount(ActionEvent event) {
+        String id = cartTableView.getSelectionModel().getSelectedItem().getId();
+        for (Item a : carts) {
+            if (a.getId().equals(id)) {
+                carts.remove(a);
+            }
+        }
+        update();
+    }
+
+    @FXML
+    public void purchaseBtn(ActionEvent event) {
+        for (Item a : carts){
+            Item b =  customerItemDB.searchItem(a.getId());
+            customerItemDB.editItem(a.getId(),a.getType(),a.getName(),b.getQuantity() - a.getQuantity(),a.getCost(),a.getDescription());
+        }
+        updateMain();
+        Alert informationAlert = new Alert(Alert.AlertType.INFORMATION,"The Items in cart is purchase.");
+        informationAlert.setTitle("Purchase");
+        informationAlert.setHeaderText("");
+        informationAlert.showAndWait();
+    }
+
+    public void updateMain() {
+        columnID.setCellValueFactory(new PropertyValueFactory<Item, String>("id"));
+        columnType.setCellValueFactory(new PropertyValueFactory<Item, String>("type"));
+        columnName.setCellValueFactory(new PropertyValueFactory<Item, String>("name"));
+        columnQuantity.setCellValueFactory(new PropertyValueFactory<Item, Integer>("quantity"));
+        columnCost.setCellValueFactory(new PropertyValueFactory<Item, Integer>("cost"));
+        columnDescription.setCellValueFactory(new PropertyValueFactory<Item, String>("description"));
+        productTableView.setItems(customerItemDB.loadDataOsv());
+        carts = FXCollections.observableArrayList();
+        update();
+    }
+    @FXML
+    public void clearCarts(ActionEvent event) {
+        carts = FXCollections.observableArrayList();
+        update();
+    }
+
 
     public void addItemToCart(Item item) {
         cart.addItem(item);

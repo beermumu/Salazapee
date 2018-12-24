@@ -8,7 +8,6 @@ class AdminAllProductPageTest {
 
     @Test
     void clickAddButton() {
-        //assertEquals(1,1);
     }
 
     @Test
