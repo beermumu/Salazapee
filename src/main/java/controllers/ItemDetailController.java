@@ -34,24 +34,23 @@ public class ItemDetailController {
         System.out.println(itemInput.getId());
         System.out.println(itemInput.getName());
         itemQuantity.setText(itemInput.getName() + " " + itemInput.getDescription());
-        quantity.setText("hi");
+        quantity.setText("0");
     }
 
 
     @FXML
     public void addQuantity(ActionEvent event){
         try {
-            int qty = Integer.parseInt(itemQuantity.getText());
+            int qty = Integer.parseInt(quantity.getText());
             int cost = qty * item.getCost();
             System.out.println(qty);
             System.out.println(cost);
 
-            Stage stage = new Stage();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/itemDetail-View.fxml"));
-            stage.setScene(new Scene(loader.load()));
             CustomerHomeController customerHomeController = loader.getController();
             customerHomeController.addItemToCart(new Item(item.getId(), item.getType(), item.getName(),qty, cost, item.getDescription()));
-            stage.show();
+            
+
         } catch (Exception e) {
 //            throw new IllegalArgumentException();
         }
