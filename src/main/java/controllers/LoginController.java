@@ -64,18 +64,21 @@ public class LoginController {
         stage.show();
     }
 
-
+    String id = "";
     public void loginOnClick(ActionEvent event) throws IOException {
         Button button = (Button) event.getSource();
         Stage stage = (Stage) button.getScene().getWindow();
         this.checkUsernameAndPassword(stage);
+
     }
+
 
     private void checkUsernameAndPassword(Stage stage) throws IOException {
         loginSuccess = false;
         for (Accounts i : accounts) {
             if (i.getUsername().equals(userName.getText()) && i.getPassword().equals(userPassword.getText())) {
                 String name = userName.getText();
+                id = i.getId();
                 if (i.getStatus() == 0) {
                     this.loginPassToCustomerPage(stage, name);
                 } else if (i.getStatus() == 1) {
@@ -95,6 +98,8 @@ public class LoginController {
     private void loginPassToCustomerPage(Stage stage, String name) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/customerHome-View.fxml"));
         stage.setScene(new Scene(loader.load()));
+        CustomerHomeController cus = loader.getController();
+        cus.setAccountID(id);
         stage.show();
         warningText.setText("");
     }

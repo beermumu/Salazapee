@@ -1,6 +1,7 @@
 package controllers;
 
 import databases.CustomerItemDB;
+import databases.InvoiceDB;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -8,11 +9,13 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import models.Invoice;
 import models.Item;
 
 import java.io.IOException;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.Optional;
 
 public class CustomerHomeController {
@@ -30,9 +33,10 @@ public class CustomerHomeController {
     @FXML
     TextField buyQuan;
     ObservableList<Item> carts = FXCollections.observableArrayList();
+    InvoiceDB invoice;
     @FXML
     Button saveBtn;
-
+    String accountID = "";
     @FXML
     private void initialize() {
 
@@ -57,7 +61,9 @@ public class CustomerHomeController {
         saveBtn.setDisable(true);
         purchaseBtn.setDisable(true);
     }
-
+    public void setAccountID(String id){
+        accountID = id;
+    }
     @FXML
     public void clickOnProduct(MouseEvent event) throws IOException {
         if (event.getClickCount() == 1) {
@@ -145,22 +151,30 @@ public class CustomerHomeController {
         }
 
     }
-
+    String detail = "";
+    Invoice model;
     @FXML
     public void purchaseBtn(ActionEvent event) {
+        detail = "";
         int mess = 0;
+
         for (Item a : carts){
             Item b =  customerItemDB.searchItem(a.getId());
             customerItemDB.editItem(a.getId(),a.getType(),a.getName(),b.getQuantity() - a.getQuantity(),a.getCost(),a.getDescription());
             int price = a.getQuantity() * a.getCost();
             mess = mess + price;
+            detail = detail + a.getName() + "(" + a.getQuantity() + ") ";
         }
+        Date date = new Date();
+        model = new Invoice(detail,date.toString(),accountID);
         updateMain();
         Alert informationAlert = new Alert(Alert.AlertType.INFORMATION,"Thank you fot purchase\n Total cost is " + mess);
         informationAlert.setTitle("Purchase");
         informationAlert.setHeaderText("");
         informationAlert.showAndWait();
+        invoice.saveInvoice(model.getDetails(),model.getDate(),model.getAccountID());
     }
+
 
     public void updateMain() {
         columnID.setCellValueFactory(new PropertyValueFactory<Item, String>("id"));
