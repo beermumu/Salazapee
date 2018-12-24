@@ -10,7 +10,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import models.Item;
 
-import java.util.Optional;
+import java.util.*;
 
 
 public class AdminAllProductPageController {
@@ -32,6 +32,7 @@ public class AdminAllProductPageController {
         cost.setCellValueFactory(new PropertyValueFactory<Item,Integer>("cost"));
         description.setCellValueFactory(new PropertyValueFactory<Item,String>("description"));
         productTableView.setItems(adminItemDB.loadItem());
+
     }
 
     @FXML
