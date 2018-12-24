@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -34,7 +35,7 @@ public class SignupController {
 
     public void editAccount(ActionEvent event) {
         if (accounts == null) {
-            if (!firstName.getText().isEmpty() && !lastName.getText().isEmpty() && !userName.getText().isEmpty() && !password.getText().isEmpty() && !address.getText().isEmpty() && !email.getText().isEmpty() && !tel.getText().isEmpty()) {
+            if (!firstName.getText().isEmpty() && !lastName.getText().isEmpty() && !userName.getText().isEmpty() && !password.getText().isEmpty() && !address.getText().isEmpty() && !email.getText().isEmpty() && !tel.getText().isEmpty() && isNumeric(tel.getText())) {
                 CustomerAccountDB.saveAccountsCustomerDB(CustomerAccountDB.getCreateAccountsID(), this.firstName.getText(), this.lastName.getText(), this.userName.getText(), this.password.getText(), this.address.getText(), this.email.getText(), this.tel.getText());
                 this.firstName.setText("");
                 this.lastName.setText("");
@@ -44,6 +45,11 @@ public class SignupController {
                 this.email.setText("");
                 this.tel.setText("");
                 this.backToAccounts(event);
+            }else {
+                Alert errorAlert = new Alert(Alert.AlertType.ERROR,"Please enter correct form.");
+                errorAlert.setTitle("ERROR!");
+                errorAlert.setHeaderText("");
+                errorAlert.showAndWait();
             }
         } else {
             this.accounts.setFirstname(firstName.getText());
@@ -58,6 +64,14 @@ public class SignupController {
         }
     }
 
+    public  boolean isNumeric(String strNum) {
+        try {
+            double d = Double.parseDouble(strNum);
+        } catch (NumberFormatException | NullPointerException nfe) {
+            return false;
+        }
+        return true;
+    }
     public void cancelToAccounts(ActionEvent event) {
         this.cancelToHome(event);
     }
