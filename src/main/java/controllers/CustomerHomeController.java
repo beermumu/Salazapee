@@ -66,11 +66,12 @@ public class CustomerHomeController {
     public void clickOnProduct(MouseEvent event) throws IOException {
         Item item = (Item) productTableView.getSelectionModel().getSelectedItem();
         if (event.getClickCount() == 2) {
-//            System.out.println(productTableView.getSelectionModel().getSelectedItem().getId());
-//            System.out.println(productTableView.getSelectionModel().getSelectedItem().getDescription());
-//            System.out.println(productTableView.getSelectionModel().getSelectedItem().getName());
-//            System.out.println(productTableView.getSelectionModel().getSelectedItem().getQuantity());
-//            System.out.println(productTableView.getSelectionModel().getSelectedItem().getCost());
+
+            System.out.println(productTableView.getSelectionModel().getSelectedItem().getId());
+            System.out.println(productTableView.getSelectionModel().getSelectedItem().getDescription());
+            System.out.println(productTableView.getSelectionModel().getSelectedItem().getName());
+            System.out.println(productTableView.getSelectionModel().getSelectedItem().getQuantity());
+            System.out.println(productTableView.getSelectionModel().getSelectedItem().getCost());
 
             Stage stage = new Stage();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/itemDetail-View.fxml"));
