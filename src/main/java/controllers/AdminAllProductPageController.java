@@ -1,6 +1,7 @@
 package controllers;
 
 import databases.AdminItemDB;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import models.Accounts;
 import models.Item;
 
 import java.util.*;
@@ -31,7 +33,17 @@ public class AdminAllProductPageController {
         quantity.setCellValueFactory(new PropertyValueFactory<Item,Integer>("quantity"));
         cost.setCellValueFactory(new PropertyValueFactory<Item,Integer>("cost"));
         description.setCellValueFactory(new PropertyValueFactory<Item,String>("description"));
-        productTableView.setItems(adminItemDB.loadItem());
+        ObservableList<Item> products = adminItemDB.loadItem();
+        Collections.sort(products, new Comparator<Item>() {
+            @Override
+            public int compare(Item o1, Item o2) {
+                if (Integer.parseInt(o1.getId())<Integer.parseInt(o2.getId())) return -1;
+                if (Integer.parseInt(o1.getId())>Integer.parseInt(o2.getId())) return 1;
+                return 0;
+            }
+        });
+        productTableView.setItems(products);
+
 
     }
 

@@ -1,6 +1,8 @@
 package controllers;
 
 import databases.AdminAccountDB;
+import javafx.collections.ObservableArray;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +12,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import models.Accounts;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Optional;
 
 public class AdminAllAccountController {
@@ -34,7 +38,16 @@ public class AdminAllAccountController {
         email.setCellValueFactory(new PropertyValueFactory<Accounts,String>("email"));
         tel.setCellValueFactory(new PropertyValueFactory<Accounts,String>("tel"));
         details.setCellValueFactory(new PropertyValueFactory<Accounts,Integer>("details"));
-        accountsTableView.setItems(adminAccountDB.loadAccount());
+        ObservableList<Accounts> accounts = adminAccountDB.loadAccount();
+        Collections.sort(accounts, new Comparator<Accounts>() {
+            @Override
+            public int compare(Accounts o1, Accounts o2) {
+                if (Integer.parseInt(o1.getId())<Integer.parseInt(o2.getId())) return -1;
+                if (Integer.parseInt(o1.getId())>Integer.parseInt(o2.getId())) return 1;
+                return 0;
+            }
+        });
+        accountsTableView.setItems(accounts);
     }
 
     @FXML
@@ -50,7 +63,6 @@ public class AdminAllAccountController {
     //delete button
     @FXML
     public void deleteAccount(ActionEvent event){
-//        String id = accountsTableView.getSelectionModel().getSelectedItem().getId();
         String id = accountsTableView.getSelectionModel().getSelectedItem().getId();
         Alert ConfirmationAlert = new Alert(Alert.AlertType.CONFIRMATION, "Do you want to delete this account?", ButtonType.YES, ButtonType.NO);
         ConfirmationAlert.setHeaderText("");
