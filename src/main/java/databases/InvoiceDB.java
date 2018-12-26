@@ -1,11 +1,14 @@
 package databases;
 
+import models.Invoice;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class InvoiceDB {
+
     private static String dbURL = "jdbc:sqlite:Database.db";
     private static String dbName = "org.sqlite.JDBC";
     private static int id = 0;
@@ -26,6 +29,9 @@ public class InvoiceDB {
             e.printStackTrace();
         } catch (SQLException e) {
             e.printStackTrace();
+            System.out.println("Error");
         }
     }
+
+
 }
