@@ -28,7 +28,7 @@ class CartTest {
         //Cart cart = new Cart();
         Item item = new Item("111","Snack","Lay",10,20,"Air in the bag");
         //cart.addItem(item);
-        //assertEquals(true,cart.isInCart(item));
+       // assertEquals(true,cart.isInCart(item));
 
 
     }
@@ -36,7 +36,7 @@ class CartTest {
     @Test
     void test_check_item_is_not_in_cart(){
 
-
+        assertEquals(1,1);
     }
 
 
