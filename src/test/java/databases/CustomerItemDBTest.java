@@ -15,14 +15,14 @@ class CustomerItemDBTest {
 
     @Test
     void test_get_itemID_in_database(){
-        //System.out.println(customerItemDB.searchItem("1").getId());
+
         assertEquals("1",customerItemDB.searchItem("1").getId());
 
     }
 
     @Test
     void test_get_cost_from_ID1_in_database(){
-      //  System.out.println(customerItemDB.searchItem("3").getCost());
+
         assertEquals(15,customerItemDB.searchItem("3").getCost());
 
     }
